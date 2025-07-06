@@ -206,9 +206,10 @@ export function getSiteSettings(): SiteSettings {
       images: {
         logo: "/images/main-logo.webp",
         heroImage: "/images/hero-dental.webp",
-        teamPhoto: "/images/dental-team.webp",
-        clinicInterior: "/images/clinic-interior.webp",
-        happyPatients: "/images/placeholder.webp",
+        teamPhotoMain: "/images/dental-team.webp",
+        clinicInteriorGeneral: "/images/clinic-interior.webp",
+        placeholderGeneral: "/images/placeholder.webp",
+        homepageHero: "/images/hero-dental.webp",
       },
       content: "",
     };
