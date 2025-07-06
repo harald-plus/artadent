@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
@@ -12,9 +12,40 @@ interface HeaderProps {
 
 export function Header({ logoSrc = "/images/main-logo.webp" }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        const currentScrollY = window.scrollY;
+        
+        // Show navbar when scrolling up or at top
+        if (currentScrollY < lastScrollY || currentScrollY < 10) {
+          setIsVisible(true);
+        } else {
+          // Hide navbar when scrolling down (but only if mobile menu is closed)
+          if (!isMobileMenuOpen) {
+            setIsVisible(false);
+          }
+        }
+        
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+      return () => window.removeEventListener('scroll', controlNavbar);
+    }
+  }, [lastScrollY, isMobileMenuOpen]);
 
   return (
-    <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <header 
+      className={`bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <div className="container mx-auto px-4">
         {/* Main navigation */}
         <nav className="flex items-center justify-between py-4">
@@ -70,45 +101,85 @@ export function Header({ logoSrc = "/images/main-logo.webp" }: HeaderProps) {
             {/* Mobile menu button */}
             <Button 
               variant="ghost" 
-              size="sm" 
-              className="lg:hidden"
+              className="lg:hidden p-3 h-12 w-12"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </Button>
           </div>
         </nav>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-4 space-y-2">
-            <Link href="/om-oss" className="block py-2 text-gray-700 hover:text-primary transition-colors">
+          <div className="lg:hidden border-t border-gray-100 py-4 space-y-3">
+            {/* Main navigation links */}
+            <Link 
+              href="/om-oss" 
+              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Om oss
             </Link>
-            <Link href="/behandlinger" className="block py-2 text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              href="/behandlinger" 
+              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Behandlinger
             </Link>
-            <Link href="/solheim" className="block py-2 pl-4 text-gray-600 hover:text-primary transition-colors">
-              Solheim Klinikk
-            </Link>
-            <Link href="/paradis" className="block py-2 pl-4 text-gray-600 hover:text-primary transition-colors">
-              Paradis Klinikk
-            </Link>
-            <Link href="/refusjon" className="block py-2 text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              href="/refusjon" 
+              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Refusjon & Støtte
             </Link>
-            <Link href="/kontakt" className="block py-2 text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              href="/kontakt" 
+              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               Kontakt oss
             </Link>
             
-            <div className="pt-4 border-t border-gray-100 space-y-2">
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>Paradis: +47 97 32 67 24</span>
+            {/* Clinics section at bottom */}
+            <div className="pt-4 border-t border-gray-100 space-y-4">
+              <h3 className="text-gray-900 font-semibold text-sm uppercase tracking-wide">Våre klinikker</h3>
+              
+              {/* Solheim Clinic */}
+              <div className="space-y-2">
+                <Link 
+                  href="/solheim" 
+                  className="block text-gray-700 hover:text-primary transition-colors font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Solheim Klinikk
+                </Link>
+                <a 
+                  href="tel:+4792943499" 
+                  className="flex items-center space-x-2 text-sm text-gray-600 hover:text-primary transition-colors pl-4"
+                >
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>Ring: 92 94 34 99</span>
+                </a>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <Phone className="h-4 w-4 text-primary" />
-                <span>Solheim: +47 92 94 34 99</span>
+              
+              {/* Paradis Clinic */}
+              <div className="space-y-2">
+                <Link 
+                  href="/paradis" 
+                  className="block text-gray-700 hover:text-primary transition-colors font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Paradis Klinikk
+                </Link>
+                <a 
+                  href="tel:+4797326724" 
+                  className="flex items-center space-x-2 text-sm text-gray-600 hover:text-primary transition-colors pl-4"
+                >
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>Ring: 97 32 67 24</span>
+                </a>
               </div>
             </div>
           </div>
