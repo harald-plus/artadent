@@ -9,10 +9,8 @@ import {
   ArrowRight,
   Building,
   Heart,
-  Shield,
   Sparkles,
   Send,
-  User,
   MessageSquare,
   CheckCircle,
   TreePine,
@@ -30,7 +28,6 @@ import { Footer } from "@/components/layout/footer";
 
 export default function ContactPage() {
   const searchParams = useSearchParams();
-  const [selectedLocation, setSelectedLocation] = useState<"solheim" | "paradis">("solheim");
   const [formData, setFormData] = useState({
     name: "",
     email: "",

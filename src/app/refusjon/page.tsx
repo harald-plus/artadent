@@ -1,7 +1,6 @@
 import { 
   CheckCircle,
   CreditCard,
-  FileText,
   Users,
   GraduationCap,
   Heart,
@@ -11,12 +10,7 @@ import {
   Building,
   Phone,
   MapPin,
-  Euro,
-  Clock,
-  Shield,
-  Star,
   HelpCircle,
-  Download,
   AlertCircle
 } from "lucide-react";
 import Link from "next/link";

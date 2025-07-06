@@ -1,5 +1,4 @@
 import { 
-  Search,
   Sparkles,
   ArrowRight,
   Calendar,
@@ -11,8 +10,7 @@ import {
   Clock,
   Zap,
   Phone,
-  MapPin,
-  Filter
+  MapPin
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -196,12 +194,6 @@ export default function TreatmentsPage() {
                 if (categoryServices.length === 0) return null;
                 
                 const category = categoryInfo[categoryKey as keyof typeof categoryInfo];
-                const colorClasses = {
-                  blue: "bg-blue-100 text-blue-800",
-                  green: "bg-green-100 text-green-800", 
-                  purple: "bg-purple-100 text-purple-800",
-                  red: "bg-red-100 text-red-800"
-                };
                 
                 return (
                   <div key={categoryKey} className="space-y-8">

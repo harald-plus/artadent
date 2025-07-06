@@ -9,7 +9,6 @@ import {
   ArrowRight,
   Calendar,
   Sparkles,
-  Star,
   MapPin,
   Phone,
   Target,
