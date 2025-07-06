@@ -32,7 +32,7 @@ export default function Home() {
     allServices.find(s => s.id === 'metallkeramisk-krone'), // prosthetics
     allServices.find(s => s.id === 'blekeskinne'), // whitening
     allServices.find(s => s.id === 'implantat') // prosthetics
-  ].filter(Boolean); // Remove any undefined services
+  ].filter((service): service is NonNullable<typeof service> => service !== undefined); // Remove any undefined services
 
   return (
     <PageLayout>
