@@ -36,7 +36,7 @@ export default function ParadisPage() {
     allServices.find(s => s.id === 'blekeskinne'),
     allServices.find(s => s.id === 'metallkeramisk-krone'),
     allServices.find(s => s.id === 'implantat')
-  ].filter(Boolean);
+  ].filter((service): service is NonNullable<typeof service> => service !== undefined);
   
   const features = [
     {
