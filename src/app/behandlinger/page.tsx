@@ -14,11 +14,12 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { services } from "@/data/services";
+import { getServices } from "@/lib/markdown";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
 export default function TreatmentsPage() {
+  const services = getServices();
   const servicesByCategory = {
     examination: services.filter(s => s.category === 'examination'),
     treatment: services.filter(s => s.category === 'treatment'),
@@ -211,7 +212,7 @@ export default function TreatmentsPage() {
                         <div key={service.id} className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300">
                           <div className="space-y-4">
                             <div className="space-y-2">
-                              <h4 className="text-xl font-medium text-gray-900">{service.name}</h4>
+                              <h4 className="text-xl font-medium text-gray-900">{service.title}</h4>
                               <p className="text-gray-600 text-sm">{service.description}</p>
                             </div>
                             
@@ -219,7 +220,7 @@ export default function TreatmentsPage() {
                               <div className="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-medium">
                                 {service.priceRange}
                               </div>
-                              <Link href={`/kontakt?service=${encodeURIComponent(service.name)}&scroll=form`} className="text-primary font-medium text-sm hover:underline">
+                              <Link href={`/kontakt?service=${encodeURIComponent(service.title)}&scroll=form`} className="text-primary font-medium text-sm hover:underline">
                                 Book nå →
                               </Link>
                             </div>
