@@ -2,7 +2,7 @@
 title: "Treflateplombe (kompositt)"
 description: "Plombe som dekker tre tannflater"
 priceRange: "1.800 kr"
-category: "treatment"
+category: "fillings"
 icon: "🦷"
 order: 14
 ---

@@ -1,6 +1,6 @@
 ---
-title: "Omfattende undersøkelse"
-description: "Inkluderer 2 røntgenbilder og enkel rens"
+title: "Komplett undersøkelse"
+description: "Inkluderer 2 røntgen, enkel rens og evt kostn. overslag"
 priceRange: "790 - 1.200 kr"
 category: "examination"
 icon: "🦷"

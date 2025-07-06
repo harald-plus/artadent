@@ -2,7 +2,7 @@
 title: "Rotbehandling fortann"
 description: "Rotbehandling av fortann"
 priceRange: "4.500 kr"
-category: "treatment"
+category: "endodontics"
 icon: "🔧"
 order: 16
 ---

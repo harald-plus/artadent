@@ -2,7 +2,7 @@
 title: "Toflateplombe (kompositt)"
 description: "Plombe som dekker to tannflater"
 priceRange: "1.400 kr"
-category: "treatment"
+category: "fillings"
 icon: "🦷"
 order: 13
 ---

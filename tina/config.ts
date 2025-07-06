@@ -59,10 +59,14 @@ export default defineConfig({
             label: "Kategori",
             required: true,
             options: [
-              { value: "examination", label: "Undersøkelse & Forebygging" },
-              { value: "treatment", label: "Behandlinger" },
-              { value: "prosthetics", label: "Proteser" },
-              { value: "emergency", label: "Akutthjelp" },
+              { value: "examination", label: "Undersøkelse og rens" },
+              { value: "xray", label: "Røntgen" },
+              { value: "fillings", label: "Fyllinger" },
+              { value: "extractions", label: "Ekstraksjon" },
+              { value: "endodontics", label: "Pulpa og rotbehandling" },
+              { value: "prosthetics", label: "Protetikk inklusive tanntekniker" },
+              { value: "whitening", label: "Bleking" },
+              { value: "misc", label: "Diverse" },
             ],
           },
           {

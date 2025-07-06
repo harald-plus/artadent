@@ -2,7 +2,7 @@
 title: "Enflateplombe (kompositt)"
 description: "Standard hvit plombe"
 priceRange: "1.100 kr"
-category: "treatment"
+category: "fillings"
 icon: "🦷"
 order: 12
 ---

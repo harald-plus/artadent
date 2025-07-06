@@ -2,7 +2,7 @@
 title: "Enkelt røntgenbilde"
 description: "Standard tannrøntgen"
 priceRange: "150 kr"
-category: "examination"
+category: "xray"
 icon: "📷"
 order: 10
 ---

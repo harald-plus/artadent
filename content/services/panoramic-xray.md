@@ -2,7 +2,7 @@
 title: "Panorama røntgen (OPG)"
 description: "Oversiktsbilde av hele munnen"
 priceRange: "850 kr"
-category: "examination"
+category: "xray"
 icon: "🎯"
 order: 11
 ---
