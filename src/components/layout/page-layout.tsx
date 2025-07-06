@@ -4,10 +4,9 @@ import { Footer } from "./footer";
 
 interface PageLayoutProps {
   children: React.ReactNode;
-  page?: 'homepage' | 'solheim' | 'paradis' | 'treatments' | 'about' | 'contact' | 'refund';
 }
 
-export function PageLayout({ children, page = 'homepage' }: PageLayoutProps) {
+export function PageLayout({ children }: PageLayoutProps) {
   const settings = getSiteSettings();
   
   return (
@@ -20,7 +19,7 @@ export function PageLayout({ children, page = 'homepage' }: PageLayoutProps) {
 }
 
 // Export the site settings for use in pages
-export function getPageImages(page: string) {
+export function getPageImages() {
   const settings = getSiteSettings();
   return settings.images;
 }
