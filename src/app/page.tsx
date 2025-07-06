@@ -23,7 +23,7 @@ import { PageLayout, getPageImages } from "@/components/layout/page-layout";
 
 export default function Home() {
   const allServices = getServices();
-  const images = getPageImages('homepage');
+  const images = getPageImages();
   // Select featured services from different categories for variety
   const featuredServices = [
     allServices.find(s => s.id === 'komplett-undersokelse'), // examination
