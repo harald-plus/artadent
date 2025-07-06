@@ -1,0 +1,43 @@
+fragment ServicesParts on Services {
+  __typename
+  title
+  description
+  priceRange
+  category
+  icon
+  order
+  body
+}
+
+fragment PagesParts on Pages {
+  __typename
+  title
+  description
+  body
+}
+
+fragment LocationsParts on Locations {
+  __typename
+  title
+  address
+  postalCode
+  city
+  phone
+  email
+  openingHours {
+    __typename
+    weekdays
+    saturday
+    sunday
+  }
+  body
+}
+
+fragment TestimonialsParts on Testimonials {
+  __typename
+  name
+  location
+  rating
+  date
+  body
+}
