@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev --turbopack\"",
-    "build": "tinacms build && next build",
+    "build": "(tinacms build || echo 'TinaCMS build failed, continuing with Next.js build...') && next build",
     "start": "next start",
     "lint": "next lint",
     "dev:next": "next dev --turbopack"
