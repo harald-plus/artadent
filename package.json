@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev --turbopack\"",
-    "build": "next build",
+    "build": "tinacms build && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:next": "next dev --turbopack"
   },
   "dependencies": {
     "@heroui/react": "^2.7.11",
