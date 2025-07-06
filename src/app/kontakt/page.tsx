@@ -45,7 +45,6 @@ export default function ContactPage() {
 
     if (clinic && (clinic === 'solheim' || clinic === 'paradis')) {
       setFormData(prev => ({ ...prev, location: clinic }));
-      setSelectedLocation(clinic);
     }
 
     if (service) {
