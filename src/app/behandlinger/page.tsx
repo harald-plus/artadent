@@ -22,35 +22,63 @@ export default function TreatmentsPage() {
   const services = getServices();
   const servicesByCategory = {
     examination: services.filter(s => s.category === 'examination'),
-    treatment: services.filter(s => s.category === 'treatment'),
+    xray: services.filter(s => s.category === 'xray'),
+    fillings: services.filter(s => s.category === 'fillings'),
+    extractions: services.filter(s => s.category === 'extractions'),
+    endodontics: services.filter(s => s.category === 'endodontics'),
     prosthetics: services.filter(s => s.category === 'prosthetics'),
-    emergency: services.filter(s => s.category === 'emergency')
+    whitening: services.filter(s => s.category === 'whitening'),
+    misc: services.filter(s => s.category === 'misc')
   };
 
   const categoryInfo = {
     examination: {
-      title: "Undersøkelse & Forebygging",
-      description: "Regelmessig kontroll og profesjonell rens",
-      icon: "🔍",
+      title: "Undersøkelse og rens",
+      description: "Rutinemessig kontroll, rens og forebyggende behandling",
+      icon: "🦷",
       color: "blue"
     },
-    treatment: {
-      title: "Behandlinger",
-      description: "Plomber, rotbehandling og tannrestaurering",
+    xray: {
+      title: "Røntgen",
+      description: "Diagnostiske røntgenbilder og panoramaopptak",
+      icon: "📸",
+      color: "gray"
+    },
+    fillings: {
+      title: "Fyllinger",
+      description: "Komposittfyllinger og tannreparasjoner (evt røntgen/anestesi etc. kommer i tillegg)",
       icon: "🦷",
       color: "green"
     },
+    extractions: {
+      title: "Ekstraksjon",
+      description: "Tanntrekking og kirurgiske inngrep (røntgen/anestesi etc. kommer i tillegg)",
+      icon: "🔧",
+      color: "orange"
+    },
+    endodontics: {
+      title: "Pulpa og rotbehandling",
+      description: "Rotfyllinger og endodontisk behandling",
+      icon: "🦷",
+      color: "red"
+    },
     prosthetics: {
-      title: "Protetikk",
+      title: "Protetikk inklusive tanntekniker",
       description: "Kroner, broer, proteser og implantater",
-      icon: "💎",
+      icon: "👑",
       color: "purple"
     },
-    emergency: {
-      title: "Akutt",
-      description: "Øyeblikkelig hjelp ved tannsmerte og skader",
-      icon: "🚨",
-      color: "red"
+    whitening: {
+      title: "Bleking",
+      description: "Tannbleking og estetiske forbedringer",
+      icon: "✨",
+      color: "yellow"
+    },
+    misc: {
+      title: "Diverse",
+      description: "Øvrige tjenester og tilleggskostnader",
+      icon: "🏥",
+      color: "gray"
     }
   };
 
@@ -119,7 +147,7 @@ export default function TreatmentsPage() {
                 <div className="aspect-square max-w-lg mx-auto relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/placeholder.svg"
+                      src="/images/placeholder.webp"
                       alt="Modern dental treatment room"
                       fill
                       className="object-cover"
@@ -197,7 +225,7 @@ export default function TreatmentsPage() {
                 const category = categoryInfo[categoryKey as keyof typeof categoryInfo];
                 
                 return (
-                  <div key={categoryKey} className="space-y-8">
+                  <div key={categoryKey} className="space-y-8" id={categoryKey}>
                     <div className="text-center">
                       <h3 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-2">
                         {category.title}
@@ -209,21 +237,19 @@ export default function TreatmentsPage() {
                     
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {categoryServices.map((service) => (
-                        <div key={service.id} className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300">
-                          <div className="space-y-4">
-                            <div className="space-y-2">
-                              <h4 className="text-xl font-medium text-gray-900">{service.title}</h4>
-                              <p className="text-gray-600 text-sm">{service.description}</p>
+                        <div key={service.id} className="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-gray-200 transition-all duration-300 flex flex-col h-full">
+                          <div className="space-y-2 flex-grow">
+                            <h4 className="text-xl font-medium text-gray-900">{service.title}</h4>
+                            <p className="text-gray-600 text-sm">{service.description}</p>
+                          </div>
+                          
+                          <div className="flex items-center justify-between pt-4 border-t border-gray-200 mt-4">
+                            <div className="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-medium">
+                              {service.priceRange}
                             </div>
-                            
-                            <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                              <div className="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-medium">
-                                {service.priceRange}
-                              </div>
-                              <Link href={`/kontakt?service=${encodeURIComponent(service.title)}&scroll=form`} className="text-primary font-medium text-sm hover:underline">
-                                Book nå →
-                              </Link>
-                            </div>
+                            <Link href={`/kontakt?service=${encodeURIComponent(service.title)}&scroll=form`} className="text-primary font-medium text-sm hover:underline">
+                              Book nå →
+                            </Link>
                           </div>
                         </div>
                       ))}
@@ -336,7 +362,7 @@ export default function TreatmentsPage() {
                   <div className="space-y-6">
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Emergency dental care"
                         fill
                         className="object-cover"
@@ -353,7 +379,7 @@ export default function TreatmentsPage() {
                   <div className="space-y-6 mt-12">
                     <div className="relative h-48 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Pain relief treatment"
                         fill
                         className="object-cover"
@@ -361,7 +387,7 @@ export default function TreatmentsPage() {
                     </div>
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Emergency equipment"
                         fill
                         className="object-cover"

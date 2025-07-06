@@ -62,6 +62,8 @@ type Query {
   locationsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: LocationsFilter): LocationsConnection!
   testimonials(relativePath: String): Testimonials!
   testimonialsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: TestimonialsFilter): TestimonialsConnection!
+  siteSettings(relativePath: String): SiteSettings!
+  siteSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteSettingsFilter): SiteSettingsConnection!
 }
 
 input DocumentFilter {
@@ -69,6 +71,7 @@ input DocumentFilter {
   pages: PagesFilter
   locations: LocationsFilter
   testimonials: TestimonialsFilter
+  siteSettings: SiteSettingsFilter
 }
 
 type DocumentConnectionEdges {
@@ -94,7 +97,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Services | Pages | Locations | Testimonials | Folder
+union DocumentNode = Services | Pages | Locations | Testimonials | SiteSettings | Folder
 
 type Services implements Node & Document {
   title: String!
@@ -102,6 +105,7 @@ type Services implements Node & Document {
   priceRange: String!
   category: String!
   icon: String
+  image: String
   order: Float
   body: JSON
   id: ID!
@@ -110,6 +114,13 @@ type Services implements Node & Document {
 }
 
 input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input ImageFilter {
   startsWith: String
   eq: String
   exists: Boolean
@@ -138,6 +149,7 @@ input ServicesFilter {
   priceRange: StringFilter
   category: StringFilter
   icon: StringFilter
+  image: ImageFilter
   order: NumberFilter
   body: RichTextFilter
 }
@@ -257,6 +269,100 @@ type TestimonialsConnection implements Connection {
   edges: [TestimonialsConnectionEdges]
 }
 
+type SiteSettingsImages {
+  logo: String
+  heroImage: String
+  teamPhotoMain: String
+  clinicInteriorGeneral: String
+  placeholderGeneral: String
+  homepageHero: String
+  homepageTeamLarge: String
+  homepageEquipment1: String
+  homepageEquipment2: String
+  homepageEquipment3: String
+  solheimHeroInterior: String
+  solheimTreatmentRoom: String
+  solheimEquipment: String
+  solheimExterior: String
+  solheimReception: String
+  solheimWaitingRoom: String
+  paradisHeroInterior: String
+  paradisTreatmentRoom: String
+  paradisEquipment: String
+  paradisExterior: String
+  paradisReception: String
+  paradisWaitingRoom: String
+  emergencyCare: String
+  painRelief: String
+  emergencyEquipment: String
+  contactHero: String
+  anxietyTreatment: String
+  aboutHeroTeam: String
+  aboutClinicShowcase: String
+  aboutEquipment: String
+  treatmentsHero: String
+}
+
+type SiteSettings implements Node & Document {
+  title: String!
+  images: SiteSettingsImages
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input SiteSettingsImagesFilter {
+  logo: ImageFilter
+  heroImage: ImageFilter
+  teamPhotoMain: ImageFilter
+  clinicInteriorGeneral: ImageFilter
+  placeholderGeneral: ImageFilter
+  homepageHero: ImageFilter
+  homepageTeamLarge: ImageFilter
+  homepageEquipment1: ImageFilter
+  homepageEquipment2: ImageFilter
+  homepageEquipment3: ImageFilter
+  solheimHeroInterior: ImageFilter
+  solheimTreatmentRoom: ImageFilter
+  solheimEquipment: ImageFilter
+  solheimExterior: ImageFilter
+  solheimReception: ImageFilter
+  solheimWaitingRoom: ImageFilter
+  paradisHeroInterior: ImageFilter
+  paradisTreatmentRoom: ImageFilter
+  paradisEquipment: ImageFilter
+  paradisExterior: ImageFilter
+  paradisReception: ImageFilter
+  paradisWaitingRoom: ImageFilter
+  emergencyCare: ImageFilter
+  painRelief: ImageFilter
+  emergencyEquipment: ImageFilter
+  contactHero: ImageFilter
+  anxietyTreatment: ImageFilter
+  aboutHeroTeam: ImageFilter
+  aboutClinicShowcase: ImageFilter
+  aboutEquipment: ImageFilter
+  treatmentsHero: ImageFilter
+}
+
+input SiteSettingsFilter {
+  title: StringFilter
+  images: SiteSettingsImagesFilter
+  body: RichTextFilter
+}
+
+type SiteSettingsConnectionEdges {
+  cursor: String!
+  node: SiteSettings
+}
+
+type SiteSettingsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [SiteSettingsConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -271,6 +377,8 @@ type Mutation {
   createLocations(relativePath: String!, params: LocationsMutation!): Locations!
   updateTestimonials(relativePath: String!, params: TestimonialsMutation!): Testimonials!
   createTestimonials(relativePath: String!, params: TestimonialsMutation!): Testimonials!
+  updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
+  createSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
 }
 
 input DocumentUpdateMutation {
@@ -278,6 +386,7 @@ input DocumentUpdateMutation {
   pages: PagesMutation
   locations: LocationsMutation
   testimonials: TestimonialsMutation
+  siteSettings: SiteSettingsMutation
   relativePath: String
 }
 
@@ -286,6 +395,7 @@ input DocumentMutation {
   pages: PagesMutation
   locations: LocationsMutation
   testimonials: TestimonialsMutation
+  siteSettings: SiteSettingsMutation
 }
 
 input ServicesMutation {
@@ -294,6 +404,7 @@ input ServicesMutation {
   priceRange: String
   category: String
   icon: String
+  image: String
   order: Float
   body: JSON
 }
@@ -326,6 +437,46 @@ input TestimonialsMutation {
   location: String
   rating: Float
   date: String
+  body: JSON
+}
+
+input SiteSettingsImagesMutation {
+  logo: String
+  heroImage: String
+  teamPhotoMain: String
+  clinicInteriorGeneral: String
+  placeholderGeneral: String
+  homepageHero: String
+  homepageTeamLarge: String
+  homepageEquipment1: String
+  homepageEquipment2: String
+  homepageEquipment3: String
+  solheimHeroInterior: String
+  solheimTreatmentRoom: String
+  solheimEquipment: String
+  solheimExterior: String
+  solheimReception: String
+  solheimWaitingRoom: String
+  paradisHeroInterior: String
+  paradisTreatmentRoom: String
+  paradisEquipment: String
+  paradisExterior: String
+  paradisReception: String
+  paradisWaitingRoom: String
+  emergencyCare: String
+  painRelief: String
+  emergencyEquipment: String
+  contactHero: String
+  anxietyTreatment: String
+  aboutHeroTeam: String
+  aboutClinicShowcase: String
+  aboutEquipment: String
+  treatmentsHero: String
+}
+
+input SiteSettingsMutation {
+  title: String
+  images: SiteSettingsImagesMutation
   body: JSON
 }
 

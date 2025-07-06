@@ -2,27 +2,31 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 
-export function Header() {
+interface HeaderProps {
+  logoSrc?: string;
+}
+
+export function Header({ logoSrc = "/images/main-logo.webp" }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         {/* Main navigation */}
-        <nav className="flex items-center justify-between py-6">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="bg-primary text-white p-3 rounded-xl">
-              <div className="text-xl font-bold">A</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900">ARTADENT</div>
-              <div className="text-sm text-primary font-medium hidden sm:block">
-                Tannleger Du Kan stole på
-              </div>
-            </div>
+        <nav className="flex items-center justify-between py-4">
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logoSrc}
+              alt="Artadent Tannklinikk"
+              width={240}
+              height={110}
+              className="h-18 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

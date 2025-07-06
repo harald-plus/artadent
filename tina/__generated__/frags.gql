@@ -5,6 +5,7 @@ fragment ServicesParts on Services {
   priceRange
   category
   icon
+  image
   order
   body
 }
@@ -39,5 +40,45 @@ fragment TestimonialsParts on Testimonials {
   location
   rating
   date
+  body
+}
+
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  title
+  images {
+    __typename
+    logo
+    heroImage
+    teamPhotoMain
+    clinicInteriorGeneral
+    placeholderGeneral
+    homepageHero
+    homepageTeamLarge
+    homepageEquipment1
+    homepageEquipment2
+    homepageEquipment3
+    solheimHeroInterior
+    solheimTreatmentRoom
+    solheimEquipment
+    solheimExterior
+    solheimReception
+    solheimWaitingRoom
+    paradisHeroInterior
+    paradisTreatmentRoom
+    paradisEquipment
+    paradisExterior
+    paradisReception
+    paradisWaitingRoom
+    emergencyCare
+    painRelief
+    emergencyEquipment
+    contactHero
+    anxietyTreatment
+    aboutHeroTeam
+    aboutClinicShowcase
+    aboutEquipment
+    treatmentsHero
+  }
   body
 }

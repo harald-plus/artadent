@@ -97,7 +97,7 @@ export default function AboutPage() {
                 <div className="aspect-square max-w-lg mx-auto relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/dental-team.svg"
+                      src="/images/dental-team.webp"
                       alt="Artadent dental team"
                       fill
                       className="object-cover"
@@ -209,7 +209,7 @@ export default function AboutPage() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="col-span-2 relative h-80 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/clinic-interior.svg"
+                      src="/images/clinic-interior.webp"
                       alt="Modern clinic interior"
                       fill
                       className="object-cover"
@@ -217,7 +217,7 @@ export default function AboutPage() {
                   </div>
                   <div className="relative h-48 rounded-2xl overflow-hidden">
                     <Image
-                      src="/images/placeholder.svg"
+                      src="/images/placeholder.webp"
                       alt="Dental equipment"
                       fill
                       className="object-cover"
@@ -274,7 +274,7 @@ export default function AboutPage() {
                   <div className="space-y-6">
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Anxiety patient treatment"
                         fill
                         className="object-cover"
@@ -290,7 +290,7 @@ export default function AboutPage() {
                   <div className="space-y-6 mt-12">
                     <div className="relative h-48 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Emergency dental care"
                         fill
                         className="object-cover"
@@ -298,7 +298,7 @@ export default function AboutPage() {
                     </div>
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Modern dental technology"
                         fill
                         className="object-cover"

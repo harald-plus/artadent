@@ -22,9 +22,13 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { locations } from "@/data/locations";
-import { services as allServices } from "@/data/services";
+import { Service } from "@/lib/markdown";
 
-export function ContactForm() {
+interface ContactFormProps {
+  services: Service[];
+}
+
+export function ContactForm({ services: allServices }: ContactFormProps) {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     name: "",
@@ -48,7 +52,7 @@ export function ContactForm() {
     if (service) {
       // Decode URL-encoded service name
       const decodedService = decodeURIComponent(service);
-      const allServiceNames = allServices.map(s => s.name);
+      const allServiceNames = allServices.map(s => s.title);
       console.log('Service from URL:', decodedService);
       console.log('Available services:', allServiceNames);
       console.log('Service match found:', allServiceNames.includes(decodedService));
@@ -64,7 +68,7 @@ export function ContactForm() {
         }
       }, 100);
     }
-  }, [searchParams]);
+  }, [searchParams, allServices]);
 
   const solheimLocation = locations.find(loc => loc.id === "solheim")!;
   const paradisLocation = locations.find(loc => loc.id === "paradis")!;
@@ -76,19 +80,27 @@ export function ContactForm() {
     alert("Takk for din henvendelse! Vi kontakter deg snart.");
   };
 
-  // Group services by category
+  // Group services by category - matching treatments page exactly
   const servicesByCategory = {
     examination: allServices.filter(s => s.category === 'examination'),
-    treatment: allServices.filter(s => s.category === 'treatment'),
+    xray: allServices.filter(s => s.category === 'xray'),
+    fillings: allServices.filter(s => s.category === 'fillings'),
+    extractions: allServices.filter(s => s.category === 'extractions'),
+    endodontics: allServices.filter(s => s.category === 'endodontics'),
     prosthetics: allServices.filter(s => s.category === 'prosthetics'),
-    emergency: allServices.filter(s => s.category === 'emergency')
+    whitening: allServices.filter(s => s.category === 'whitening'),
+    misc: allServices.filter(s => s.category === 'misc')
   };
 
   const categoryLabels = {
-    examination: "Undersøkelse & Forebygging",
-    treatment: "Behandlinger",
-    prosthetics: "Proteser",
-    emergency: "Akutthjelp"
+    examination: "Undersøkelse og rens",
+    xray: "Røntgen",
+    fillings: "Fyllinger",
+    extractions: "Ekstraksjon",
+    endodontics: "Pulpa og rotbehandling",
+    prosthetics: "Protetikk inklusive tanntekniker",
+    whitening: "Bleking",
+    misc: "Diverse"
   };
 
   const quickFacts = [
@@ -299,15 +311,18 @@ export function ContactForm() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
                     >
                       <option value="">Velg behandling</option>
-                      {Object.entries(servicesByCategory).map(([categoryKey, categoryServices]) => (
-                        <optgroup key={categoryKey} label={categoryLabels[categoryKey as keyof typeof categoryLabels]}>
-                          {categoryServices.map((service) => (
-                            <option key={service.id} value={service.name}>
-                              {service.name}
-                            </option>
-                          ))}
-                        </optgroup>
-                      ))}
+                      {Object.entries(servicesByCategory).map(([categoryKey, categoryServices]) => {
+                        if (categoryServices.length === 0) return null;
+                        return (
+                          <optgroup key={categoryKey} label={categoryLabels[categoryKey as keyof typeof categoryLabels]}>
+                            {categoryServices.map((service) => (
+                              <option key={service.id} value={service.title}>
+                                {service.title}
+                              </option>
+                            ))}
+                          </optgroup>
+                        );
+                      })}
                       <option value="Annet">Annet</option>
                     </select>
                   </div>

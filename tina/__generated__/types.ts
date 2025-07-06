@@ -90,6 +90,8 @@ export type Query = {
   locationsConnection: LocationsConnection;
   testimonials: Testimonials;
   testimonialsConnection: TestimonialsConnection;
+  siteSettings: SiteSettings;
+  siteSettingsConnection: SiteSettingsConnection;
 };
 
 
@@ -173,11 +175,27 @@ export type QueryTestimonialsConnectionArgs = {
   filter?: InputMaybe<TestimonialsFilter>;
 };
 
+
+export type QuerySiteSettingsArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySiteSettingsConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SiteSettingsFilter>;
+};
+
 export type DocumentFilter = {
   services?: InputMaybe<ServicesFilter>;
   pages?: InputMaybe<PagesFilter>;
   locations?: InputMaybe<LocationsFilter>;
   testimonials?: InputMaybe<TestimonialsFilter>;
+  siteSettings?: InputMaybe<SiteSettingsFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -217,7 +235,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Services | Pages | Locations | Testimonials | Folder;
+export type DocumentNode = Services | Pages | Locations | Testimonials | SiteSettings | Folder;
 
 export type Services = Node & Document & {
   __typename?: 'Services';
@@ -226,6 +244,7 @@ export type Services = Node & Document & {
   priceRange: Scalars['String']['output'];
   category: Scalars['String']['output'];
   icon?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
   order?: Maybe<Scalars['Float']['output']>;
   body?: Maybe<Scalars['JSON']['output']>;
   id: Scalars['ID']['output'];
@@ -234,6 +253,13 @@ export type Services = Node & Document & {
 };
 
 export type StringFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ImageFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -262,6 +288,7 @@ export type ServicesFilter = {
   priceRange?: InputMaybe<StringFilter>;
   category?: InputMaybe<StringFilter>;
   icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
   order?: InputMaybe<NumberFilter>;
   body?: InputMaybe<RichTextFilter>;
 };
@@ -393,6 +420,104 @@ export type TestimonialsConnection = Connection & {
   edges?: Maybe<Array<Maybe<TestimonialsConnectionEdges>>>;
 };
 
+export type SiteSettingsImages = {
+  __typename?: 'SiteSettingsImages';
+  logo?: Maybe<Scalars['String']['output']>;
+  heroImage?: Maybe<Scalars['String']['output']>;
+  teamPhotoMain?: Maybe<Scalars['String']['output']>;
+  clinicInteriorGeneral?: Maybe<Scalars['String']['output']>;
+  placeholderGeneral?: Maybe<Scalars['String']['output']>;
+  homepageHero?: Maybe<Scalars['String']['output']>;
+  homepageTeamLarge?: Maybe<Scalars['String']['output']>;
+  homepageEquipment1?: Maybe<Scalars['String']['output']>;
+  homepageEquipment2?: Maybe<Scalars['String']['output']>;
+  homepageEquipment3?: Maybe<Scalars['String']['output']>;
+  solheimHeroInterior?: Maybe<Scalars['String']['output']>;
+  solheimTreatmentRoom?: Maybe<Scalars['String']['output']>;
+  solheimEquipment?: Maybe<Scalars['String']['output']>;
+  solheimExterior?: Maybe<Scalars['String']['output']>;
+  solheimReception?: Maybe<Scalars['String']['output']>;
+  solheimWaitingRoom?: Maybe<Scalars['String']['output']>;
+  paradisHeroInterior?: Maybe<Scalars['String']['output']>;
+  paradisTreatmentRoom?: Maybe<Scalars['String']['output']>;
+  paradisEquipment?: Maybe<Scalars['String']['output']>;
+  paradisExterior?: Maybe<Scalars['String']['output']>;
+  paradisReception?: Maybe<Scalars['String']['output']>;
+  paradisWaitingRoom?: Maybe<Scalars['String']['output']>;
+  emergencyCare?: Maybe<Scalars['String']['output']>;
+  painRelief?: Maybe<Scalars['String']['output']>;
+  emergencyEquipment?: Maybe<Scalars['String']['output']>;
+  contactHero?: Maybe<Scalars['String']['output']>;
+  anxietyTreatment?: Maybe<Scalars['String']['output']>;
+  aboutHeroTeam?: Maybe<Scalars['String']['output']>;
+  aboutClinicShowcase?: Maybe<Scalars['String']['output']>;
+  aboutEquipment?: Maybe<Scalars['String']['output']>;
+  treatmentsHero?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteSettings = Node & Document & {
+  __typename?: 'SiteSettings';
+  title: Scalars['String']['output'];
+  images?: Maybe<SiteSettingsImages>;
+  body?: Maybe<Scalars['JSON']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type SiteSettingsImagesFilter = {
+  logo?: InputMaybe<ImageFilter>;
+  heroImage?: InputMaybe<ImageFilter>;
+  teamPhotoMain?: InputMaybe<ImageFilter>;
+  clinicInteriorGeneral?: InputMaybe<ImageFilter>;
+  placeholderGeneral?: InputMaybe<ImageFilter>;
+  homepageHero?: InputMaybe<ImageFilter>;
+  homepageTeamLarge?: InputMaybe<ImageFilter>;
+  homepageEquipment1?: InputMaybe<ImageFilter>;
+  homepageEquipment2?: InputMaybe<ImageFilter>;
+  homepageEquipment3?: InputMaybe<ImageFilter>;
+  solheimHeroInterior?: InputMaybe<ImageFilter>;
+  solheimTreatmentRoom?: InputMaybe<ImageFilter>;
+  solheimEquipment?: InputMaybe<ImageFilter>;
+  solheimExterior?: InputMaybe<ImageFilter>;
+  solheimReception?: InputMaybe<ImageFilter>;
+  solheimWaitingRoom?: InputMaybe<ImageFilter>;
+  paradisHeroInterior?: InputMaybe<ImageFilter>;
+  paradisTreatmentRoom?: InputMaybe<ImageFilter>;
+  paradisEquipment?: InputMaybe<ImageFilter>;
+  paradisExterior?: InputMaybe<ImageFilter>;
+  paradisReception?: InputMaybe<ImageFilter>;
+  paradisWaitingRoom?: InputMaybe<ImageFilter>;
+  emergencyCare?: InputMaybe<ImageFilter>;
+  painRelief?: InputMaybe<ImageFilter>;
+  emergencyEquipment?: InputMaybe<ImageFilter>;
+  contactHero?: InputMaybe<ImageFilter>;
+  anxietyTreatment?: InputMaybe<ImageFilter>;
+  aboutHeroTeam?: InputMaybe<ImageFilter>;
+  aboutClinicShowcase?: InputMaybe<ImageFilter>;
+  aboutEquipment?: InputMaybe<ImageFilter>;
+  treatmentsHero?: InputMaybe<ImageFilter>;
+};
+
+export type SiteSettingsFilter = {
+  title?: InputMaybe<StringFilter>;
+  images?: InputMaybe<SiteSettingsImagesFilter>;
+  body?: InputMaybe<RichTextFilter>;
+};
+
+export type SiteSettingsConnectionEdges = {
+  __typename?: 'SiteSettingsConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<SiteSettings>;
+};
+
+export type SiteSettingsConnection = Connection & {
+  __typename?: 'SiteSettingsConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<SiteSettingsConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -408,6 +533,8 @@ export type Mutation = {
   createLocations: Locations;
   updateTestimonials: Testimonials;
   createTestimonials: Testimonials;
+  updateSiteSettings: SiteSettings;
+  createSiteSettings: SiteSettings;
 };
 
 
@@ -491,11 +618,24 @@ export type MutationCreateTestimonialsArgs = {
   params: TestimonialsMutation;
 };
 
+
+export type MutationUpdateSiteSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SiteSettingsMutation;
+};
+
+
+export type MutationCreateSiteSettingsArgs = {
+  relativePath: Scalars['String']['input'];
+  params: SiteSettingsMutation;
+};
+
 export type DocumentUpdateMutation = {
   services?: InputMaybe<ServicesMutation>;
   pages?: InputMaybe<PagesMutation>;
   locations?: InputMaybe<LocationsMutation>;
   testimonials?: InputMaybe<TestimonialsMutation>;
+  siteSettings?: InputMaybe<SiteSettingsMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -504,6 +644,7 @@ export type DocumentMutation = {
   pages?: InputMaybe<PagesMutation>;
   locations?: InputMaybe<LocationsMutation>;
   testimonials?: InputMaybe<TestimonialsMutation>;
+  siteSettings?: InputMaybe<SiteSettingsMutation>;
 };
 
 export type ServicesMutation = {
@@ -512,6 +653,7 @@ export type ServicesMutation = {
   priceRange?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
   order?: InputMaybe<Scalars['Float']['input']>;
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
@@ -547,7 +689,47 @@ export type TestimonialsMutation = {
   body?: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type ServicesPartsFragment = { __typename: 'Services', title: string, description: string, priceRange: string, category: string, icon?: string | null, order?: number | null, body?: any | null };
+export type SiteSettingsImagesMutation = {
+  logo?: InputMaybe<Scalars['String']['input']>;
+  heroImage?: InputMaybe<Scalars['String']['input']>;
+  teamPhotoMain?: InputMaybe<Scalars['String']['input']>;
+  clinicInteriorGeneral?: InputMaybe<Scalars['String']['input']>;
+  placeholderGeneral?: InputMaybe<Scalars['String']['input']>;
+  homepageHero?: InputMaybe<Scalars['String']['input']>;
+  homepageTeamLarge?: InputMaybe<Scalars['String']['input']>;
+  homepageEquipment1?: InputMaybe<Scalars['String']['input']>;
+  homepageEquipment2?: InputMaybe<Scalars['String']['input']>;
+  homepageEquipment3?: InputMaybe<Scalars['String']['input']>;
+  solheimHeroInterior?: InputMaybe<Scalars['String']['input']>;
+  solheimTreatmentRoom?: InputMaybe<Scalars['String']['input']>;
+  solheimEquipment?: InputMaybe<Scalars['String']['input']>;
+  solheimExterior?: InputMaybe<Scalars['String']['input']>;
+  solheimReception?: InputMaybe<Scalars['String']['input']>;
+  solheimWaitingRoom?: InputMaybe<Scalars['String']['input']>;
+  paradisHeroInterior?: InputMaybe<Scalars['String']['input']>;
+  paradisTreatmentRoom?: InputMaybe<Scalars['String']['input']>;
+  paradisEquipment?: InputMaybe<Scalars['String']['input']>;
+  paradisExterior?: InputMaybe<Scalars['String']['input']>;
+  paradisReception?: InputMaybe<Scalars['String']['input']>;
+  paradisWaitingRoom?: InputMaybe<Scalars['String']['input']>;
+  emergencyCare?: InputMaybe<Scalars['String']['input']>;
+  painRelief?: InputMaybe<Scalars['String']['input']>;
+  emergencyEquipment?: InputMaybe<Scalars['String']['input']>;
+  contactHero?: InputMaybe<Scalars['String']['input']>;
+  anxietyTreatment?: InputMaybe<Scalars['String']['input']>;
+  aboutHeroTeam?: InputMaybe<Scalars['String']['input']>;
+  aboutClinicShowcase?: InputMaybe<Scalars['String']['input']>;
+  aboutEquipment?: InputMaybe<Scalars['String']['input']>;
+  treatmentsHero?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteSettingsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<SiteSettingsImagesMutation>;
+  body?: InputMaybe<Scalars['JSON']['input']>;
+};
+
+export type ServicesPartsFragment = { __typename: 'Services', title: string, description: string, priceRange: string, category: string, icon?: string | null, image?: string | null, order?: number | null, body?: any | null };
 
 export type PagesPartsFragment = { __typename: 'Pages', title: string, description?: string | null, body?: any | null };
 
@@ -555,12 +737,14 @@ export type LocationsPartsFragment = { __typename: 'Locations', title: string, a
 
 export type TestimonialsPartsFragment = { __typename: 'Testimonials', name: string, location?: string | null, rating: number, date?: string | null, body?: any | null };
 
+export type SiteSettingsPartsFragment = { __typename: 'SiteSettings', title: string, body?: any | null, images?: { __typename: 'SiteSettingsImages', logo?: string | null, heroImage?: string | null, teamPhotoMain?: string | null, clinicInteriorGeneral?: string | null, placeholderGeneral?: string | null, homepageHero?: string | null, homepageTeamLarge?: string | null, homepageEquipment1?: string | null, homepageEquipment2?: string | null, homepageEquipment3?: string | null, solheimHeroInterior?: string | null, solheimTreatmentRoom?: string | null, solheimEquipment?: string | null, solheimExterior?: string | null, solheimReception?: string | null, solheimWaitingRoom?: string | null, paradisHeroInterior?: string | null, paradisTreatmentRoom?: string | null, paradisEquipment?: string | null, paradisExterior?: string | null, paradisReception?: string | null, paradisWaitingRoom?: string | null, emergencyCare?: string | null, painRelief?: string | null, emergencyEquipment?: string | null, contactHero?: string | null, anxietyTreatment?: string | null, aboutHeroTeam?: string | null, aboutClinicShowcase?: string | null, aboutEquipment?: string | null, treatmentsHero?: string | null } | null };
+
 export type ServicesQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type ServicesQuery = { __typename?: 'Query', services: { __typename: 'Services', id: string, title: string, description: string, priceRange: string, category: string, icon?: string | null, order?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ServicesQuery = { __typename?: 'Query', services: { __typename: 'Services', id: string, title: string, description: string, priceRange: string, category: string, icon?: string | null, image?: string | null, order?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type ServicesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -572,7 +756,7 @@ export type ServicesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ServicesConnectionQuery = { __typename?: 'Query', servicesConnection: { __typename?: 'ServicesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ServicesConnectionEdges', cursor: string, node?: { __typename: 'Services', id: string, title: string, description: string, priceRange: string, category: string, icon?: string | null, order?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ServicesConnectionQuery = { __typename?: 'Query', servicesConnection: { __typename?: 'ServicesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ServicesConnectionEdges', cursor: string, node?: { __typename: 'Services', id: string, title: string, description: string, priceRange: string, category: string, icon?: string | null, image?: string | null, order?: number | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type PagesQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -631,6 +815,25 @@ export type TestimonialsConnectionQueryVariables = Exact<{
 
 export type TestimonialsConnectionQuery = { __typename?: 'Query', testimonialsConnection: { __typename?: 'TestimonialsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'TestimonialsConnectionEdges', cursor: string, node?: { __typename: 'Testimonials', id: string, name: string, location?: string | null, rating: number, date?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
+export type SiteSettingsQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type SiteSettingsQuery = { __typename?: 'Query', siteSettings: { __typename: 'SiteSettings', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, images?: { __typename: 'SiteSettingsImages', logo?: string | null, heroImage?: string | null, teamPhotoMain?: string | null, clinicInteriorGeneral?: string | null, placeholderGeneral?: string | null, homepageHero?: string | null, homepageTeamLarge?: string | null, homepageEquipment1?: string | null, homepageEquipment2?: string | null, homepageEquipment3?: string | null, solheimHeroInterior?: string | null, solheimTreatmentRoom?: string | null, solheimEquipment?: string | null, solheimExterior?: string | null, solheimReception?: string | null, solheimWaitingRoom?: string | null, paradisHeroInterior?: string | null, paradisTreatmentRoom?: string | null, paradisEquipment?: string | null, paradisExterior?: string | null, paradisReception?: string | null, paradisWaitingRoom?: string | null, emergencyCare?: string | null, painRelief?: string | null, emergencyEquipment?: string | null, contactHero?: string | null, anxietyTreatment?: string | null, aboutHeroTeam?: string | null, aboutClinicShowcase?: string | null, aboutEquipment?: string | null, treatmentsHero?: string | null } | null } };
+
+export type SiteSettingsConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<SiteSettingsFilter>;
+}>;
+
+
+export type SiteSettingsConnectionQuery = { __typename?: 'Query', siteSettingsConnection: { __typename?: 'SiteSettingsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SiteSettingsConnectionEdges', cursor: string, node?: { __typename: 'SiteSettings', id: string, title: string, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, images?: { __typename: 'SiteSettingsImages', logo?: string | null, heroImage?: string | null, teamPhotoMain?: string | null, clinicInteriorGeneral?: string | null, placeholderGeneral?: string | null, homepageHero?: string | null, homepageTeamLarge?: string | null, homepageEquipment1?: string | null, homepageEquipment2?: string | null, homepageEquipment3?: string | null, solheimHeroInterior?: string | null, solheimTreatmentRoom?: string | null, solheimEquipment?: string | null, solheimExterior?: string | null, solheimReception?: string | null, solheimWaitingRoom?: string | null, paradisHeroInterior?: string | null, paradisTreatmentRoom?: string | null, paradisEquipment?: string | null, paradisExterior?: string | null, paradisReception?: string | null, paradisWaitingRoom?: string | null, emergencyCare?: string | null, painRelief?: string | null, emergencyEquipment?: string | null, contactHero?: string | null, anxietyTreatment?: string | null, aboutHeroTeam?: string | null, aboutClinicShowcase?: string | null, aboutEquipment?: string | null, treatmentsHero?: string | null } | null } | null } | null> | null } };
+
 export const ServicesPartsFragmentDoc = gql`
     fragment ServicesParts on Services {
   __typename
@@ -639,6 +842,7 @@ export const ServicesPartsFragmentDoc = gql`
   priceRange
   category
   icon
+  image
   order
   body
 }
@@ -676,6 +880,47 @@ export const TestimonialsPartsFragmentDoc = gql`
   location
   rating
   date
+  body
+}
+    `;
+export const SiteSettingsPartsFragmentDoc = gql`
+    fragment SiteSettingsParts on SiteSettings {
+  __typename
+  title
+  images {
+    __typename
+    logo
+    heroImage
+    teamPhotoMain
+    clinicInteriorGeneral
+    placeholderGeneral
+    homepageHero
+    homepageTeamLarge
+    homepageEquipment1
+    homepageEquipment2
+    homepageEquipment3
+    solheimHeroInterior
+    solheimTreatmentRoom
+    solheimEquipment
+    solheimExterior
+    solheimReception
+    solheimWaitingRoom
+    paradisHeroInterior
+    paradisTreatmentRoom
+    paradisEquipment
+    paradisExterior
+    paradisReception
+    paradisWaitingRoom
+    emergencyCare
+    painRelief
+    emergencyEquipment
+    contactHero
+    anxietyTreatment
+    aboutHeroTeam
+    aboutClinicShowcase
+    aboutEquipment
+    treatmentsHero
+  }
   body
 }
     `;
@@ -907,6 +1152,63 @@ export const TestimonialsConnectionDocument = gql`
   }
 }
     ${TestimonialsPartsFragmentDoc}`;
+export const SiteSettingsDocument = gql`
+    query siteSettings($relativePath: String!) {
+  siteSettings(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SiteSettingsParts
+  }
+}
+    ${SiteSettingsPartsFragmentDoc}`;
+export const SiteSettingsConnectionDocument = gql`
+    query siteSettingsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SiteSettingsFilter) {
+  siteSettingsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SiteSettingsParts
+      }
+    }
+  }
+}
+    ${SiteSettingsPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -933,6 +1235,12 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     testimonialsConnection(variables?: TestimonialsConnectionQueryVariables, options?: C): Promise<{data: TestimonialsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialsConnectionQueryVariables, query: string}> {
         return requester<{data: TestimonialsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: TestimonialsConnectionQueryVariables, query: string}, TestimonialsConnectionQueryVariables>(TestimonialsConnectionDocument, variables, options);
+      },
+    siteSettings(variables: SiteSettingsQueryVariables, options?: C): Promise<{data: SiteSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsQueryVariables, query: string}> {
+        return requester<{data: SiteSettingsQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsQueryVariables, query: string}, SiteSettingsQueryVariables>(SiteSettingsDocument, variables, options);
+      },
+    siteSettingsConnection(variables?: SiteSettingsConnectionQueryVariables, options?: C): Promise<{data: SiteSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsConnectionQueryVariables, query: string}> {
+        return requester<{data: SiteSettingsConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: SiteSettingsConnectionQueryVariables, query: string}, SiteSettingsConnectionQueryVariables>(SiteSettingsConnectionDocument, variables, options);
       }
     };
   }

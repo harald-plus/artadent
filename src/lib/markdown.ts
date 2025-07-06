@@ -9,8 +9,9 @@ export interface Service {
   title: string;
   description: string;
   priceRange: string;
-  category: 'examination' | 'treatment' | 'prosthetics' | 'emergency';
+  category: 'examination' | 'xray' | 'fillings' | 'extractions' | 'endodontics' | 'prosthetics' | 'whitening' | 'misc';
   icon?: string;
+  image?: string;
   order?: number;
   content: string;
 }
@@ -40,6 +41,18 @@ export interface Testimonial {
   content: string;
 }
 
+export interface SiteSettings {
+  title: string;
+  images: {
+    logo?: string;
+    heroImage?: string;
+    teamPhoto?: string;
+    clinicInterior?: string;
+    happyPatients?: string;
+  };
+  content: string;
+}
+
 export function getServices(): Service[] {
   const servicesDirectory = path.join(contentDirectory, 'services');
   
@@ -63,6 +76,7 @@ export function getServices(): Service[] {
         priceRange: data.priceRange,
         category: data.category,
         icon: data.icon,
+        image: data.image,
         order: data.order || 999,
         content,
       };
@@ -141,4 +155,32 @@ export function getServiceById(id: string): Service | null {
 export function getLocationById(id: string): Location | null {
   const locations = getLocations();
   return locations.find(location => location.id === id) || null;
+}
+
+export function getSiteSettings(): SiteSettings {
+  const settingsPath = path.join(contentDirectory, 'settings', 'site-settings.md');
+  
+  if (!fs.existsSync(settingsPath)) {
+    // Return default settings if file doesn't exist
+    return {
+      title: "Nettstedinnstillinger",
+      images: {
+        logo: "/images/main-logo.webp",
+        heroImage: "/images/hero-dental.webp",
+        teamPhoto: "/images/dental-team.webp",
+        clinicInterior: "/images/clinic-interior.webp",
+        happyPatients: "/images/placeholder.webp",
+      },
+      content: "",
+    };
+  }
+
+  const fileContents = fs.readFileSync(settingsPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  
+  return {
+    title: data.title,
+    images: data.images || {},
+    content,
+  };
 }

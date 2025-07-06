@@ -18,17 +18,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { statistics } from "@/data/statistics";
 import { testimonials } from "@/data/testimonials";
-import { services } from "@/data/services";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+import { getServices } from "@/lib/markdown";
+import { PageLayout, getPageImages } from "@/components/layout/page-layout";
 
 export default function Home() {
-  const featuredServices = services.slice(0, 6);
+  const allServices = getServices();
+  const images = getPageImages('homepage');
+  // Select featured services from different categories for variety
+  const featuredServices = [
+    allServices.find(s => s.id === 'komplett-undersokelse'), // examination
+    allServices.find(s => s.id === 'fyllinger-en-tannflate'), // fillings
+    allServices.find(s => s.id === 'rotfylling-fortann'), // endodontics
+    allServices.find(s => s.id === 'metallkeramisk-krone'), // prosthetics
+    allServices.find(s => s.id === 'blekeskinne'), // whitening
+    allServices.find(s => s.id === 'implantat') // prosthetics
+  ].filter(Boolean); // Remove any undefined services
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
+    <PageLayout>
       <main>
         {/* Clean Hero Section */}
         <section className="relative py-24 lg:py-32 overflow-hidden">
@@ -84,7 +91,7 @@ export default function Home() {
                 <div className="aspect-square max-w-lg mx-auto relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/hero-dental.svg"
+                      src={images.homepageHero || "/images/hero-dental.webp"}
                       alt="Professional dental care at Artadent"
                       fill
                       className="object-cover"
@@ -161,7 +168,7 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="col-span-2 relative h-80 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/dental-team.svg"
+                      src={images.homepageTeamLarge || "/images/dental-team.webp"}
                       alt="Artadent dental team"
                       fill
                       className="object-cover"
@@ -169,7 +176,7 @@ export default function Home() {
                   </div>
                   <div className="relative h-48 rounded-2xl overflow-hidden">
                     <Image
-                      src="/images/clinic-interior.svg"
+                      src={images.clinicInteriorGeneral || "/images/clinic-interior.webp"}
                       alt="Modern clinic interior"
                       fill
                       className="object-cover"
@@ -280,7 +287,7 @@ export default function Home() {
                   <div className="space-y-6">
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src={images.homepageEquipment1 || "/images/young-dentist.webp"}
                         alt="Modern dental equipment"
                         fill
                         className="object-cover"
@@ -299,7 +306,7 @@ export default function Home() {
                   <div className="space-y-6 mt-12">
                     <div className="relative h-48 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src={images.homepageEquipment2 || "/images/female-staff.webp"}
                         alt="Comfortable treatment room"
                         fill
                         className="object-cover"
@@ -307,7 +314,7 @@ export default function Home() {
                     </div>
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src={images.homepageEquipment3 || "/images/treatment-scene.webp"}
                         alt="Advanced dental technology"
                         fill
                         className="object-cover"
@@ -346,33 +353,28 @@ export default function Home() {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {featuredServices.map((service, index) => {
-                const serviceEmojis = ["🔍", "✨", "🦷", "🔧", "💎", "🩺"];
-                const emoji = serviceEmojis[index] || "🦷";
+              {featuredServices.map((service) => {
                 
                 return (
                   <div key={service.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden">
                     <div className="relative h-48 bg-gradient-to-br from-primary-100 to-primary-200">
                       <Image
-                        src="/images/placeholder.svg"
-                        alt={service.name}
+                        src={service.image || images.placeholderGeneral || "/images/placeholder.webp"}
+                        alt={service.title}
                         fill
                         className="object-cover opacity-80"
                       />
-                      <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/90 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                        <div className="text-lg">{emoji}</div>
-                      </div>
                     </div>
                     
                     <div className="p-6 space-y-4">
-                      <h3 className="text-xl font-medium text-gray-900">{service.name}</h3>
+                      <h3 className="text-xl font-medium text-gray-900">{service.title}</h3>
                       <p className="text-gray-600">{service.description}</p>
                       <div className="flex items-center justify-between">
                         <div className="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm font-medium">
                           {service.priceRange}
                         </div>
-                        <Link href="/behandlinger" className="text-primary font-medium text-sm hover:underline">
-                          Les mer →
+                        <Link href={`/kontakt?service=${encodeURIComponent(service.title)}&scroll=form`} className="text-primary font-medium text-sm hover:underline">
+                          Book nå →
                         </Link>
                       </div>
                     </div>
@@ -520,8 +522,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 }

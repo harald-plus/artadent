@@ -1,15 +1,26 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from "lucide-react";
 import { locations } from "@/data/locations";
 
-export function Footer() {
+interface FooterProps {
+  logoSrc?: string;
+}
+
+export function Footer({ logoSrc = "/images/main-logo.webp" }: FooterProps) {
   return (
     <footer className="bg-gradient-to-br from-blue-50 to-white border-t border-gray-100">
       <div className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="text-3xl font-medium text-gray-900">ARTADENT</div>
+            <Image
+              src={logoSrc}
+              alt="Artadent Tannklinikk"
+              width={200}
+              height={90}
+              className="h-16 w-auto"
+            />
             <p className="text-gray-600 leading-relaxed">
               Veien til et sunnere, vakrere smil. 20+ års erfaring med avansert 
               tannbehandling og førsteklasses omsorg.

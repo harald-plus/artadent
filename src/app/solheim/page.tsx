@@ -18,6 +18,7 @@ import {
   Sparkles
 } from "lucide-react";
 import Link from "next/link";
+import { getServices } from "@/lib/markdown";
 import Image from "next/image";
 import { locations } from "@/data/locations";
 import { Header } from "@/components/layout/header";
@@ -25,6 +26,16 @@ import { Footer } from "@/components/layout/footer";
 
 export default function SolheimPage() {
   const solheimLocation = locations.find(loc => loc.id === "solheim")!;
+  const allServices = getServices();
+  // Select featured services for clinic page
+  const featuredServices = [
+    allServices.find(s => s.id === 'komplett-undersokelse'),
+    allServices.find(s => s.id === 'fyllinger-en-tannflate'), 
+    allServices.find(s => s.id === 'rotfylling-fortann'),
+    allServices.find(s => s.id === 'blekeskinne'),
+    allServices.find(s => s.id === 'metallkeramisk-krone'),
+    allServices.find(s => s.id === 'implantat')
+  ].filter(Boolean);
   
   const features = [
     {
@@ -47,15 +58,6 @@ export default function SolheimPage() {
       title: "Helfo direkteoppgjør",
       description: "Vi ordner refusjonen for deg"
     }
-  ];
-
-  const services = [
-    { name: "Rutinemessig kontroll", price: "790 - 1.200 kr" },
-    { name: "Akutt tannsmerte", price: "850 - 1.300 kr" },
-    { name: "Plomber (kompositt)", price: "1.100 - 1.800 kr" },
-    { name: "Tannbleking", price: "4.500 kr" },
-    { name: "Rotbehandling", price: "4.500 - 6.500 kr" },
-    { name: "Tannimplantat", price: "20.000 - 35.000 kr" }
   ];
 
   const directions = [
@@ -136,7 +138,7 @@ export default function SolheimPage() {
                 <div className="aspect-square max-w-lg mx-auto relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/clinic-interior.svg"
+                      src="/images/clinic-interior.webp"
                       alt="Solheim clinic interior"
                       fill
                       className="object-cover"
@@ -212,15 +214,20 @@ export default function SolheimPage() {
                 </div>
                 
                 <div className="space-y-4">
-                  {services.map((service, index) => (
-                    <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  {featuredServices.map((service) => (
+                    <div key={service.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center">
                           <CheckCircle className="w-4 h-4 text-primary" />
                         </div>
-                        <span className="font-medium text-gray-900">{service.name}</span>
+                        <div>
+                          <span className="font-medium text-gray-900 block">{service.title}</span>
+                          <span className="text-primary font-semibold text-sm">{service.priceRange}</span>
+                        </div>
                       </div>
-                      <span className="text-primary font-semibold">{service.price}</span>
+                      <Link href={`/kontakt?service=${encodeURIComponent(service.title)}&clinic=solheim&scroll=form`} className="text-primary font-medium text-sm hover:underline flex-shrink-0">
+                        Book nå →
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -235,7 +242,7 @@ export default function SolheimPage() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="col-span-2 relative h-80 rounded-3xl overflow-hidden">
                     <Image
-                      src="/images/placeholder.svg"
+                      src="/images/placeholder.webp"
                       alt="Solheim clinic treatment room"
                       fill
                       className="object-cover"
@@ -243,7 +250,7 @@ export default function SolheimPage() {
                   </div>
                   <div className="relative h-48 rounded-2xl overflow-hidden">
                     <Image
-                      src="/images/placeholder.svg"
+                      src="/images/placeholder.webp"
                       alt="Modern dental equipment"
                       fill
                       className="object-cover"
@@ -336,7 +343,7 @@ export default function SolheimPage() {
                   <div className="space-y-6">
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Solheim clinic exterior"
                         fill
                         className="object-cover"
@@ -352,7 +359,7 @@ export default function SolheimPage() {
                   <div className="space-y-6 mt-12">
                     <div className="relative h-48 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Reception area"
                         fill
                         className="object-cover"
@@ -360,7 +367,7 @@ export default function SolheimPage() {
                     </div>
                     <div className="relative h-64 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/placeholder.svg"
+                        src="/images/placeholder.webp"
                         alt="Waiting room"
                         fill
                         className="object-cover"
