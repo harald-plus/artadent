@@ -44,11 +44,50 @@ export interface Testimonial {
 export interface SiteSettings {
   title: string;
   images: {
+    // Global/Brand Images
     logo?: string;
     heroImage?: string;
-    teamPhoto?: string;
-    clinicInterior?: string;
-    happyPatients?: string;
+    teamPhotoMain?: string;
+    clinicInteriorGeneral?: string;
+    placeholderGeneral?: string;
+    
+    // Homepage Specific Images
+    homepageHero?: string;
+    homepageTeamLarge?: string;
+    homepageEquipment1?: string;
+    homepageEquipment2?: string;
+    homepageEquipment3?: string;
+    
+    // Solheim Clinic Specific Images
+    solheimHeroInterior?: string;
+    solheimTreatmentRoom?: string;
+    solheimEquipment?: string;
+    solheimExterior?: string;
+    solheimReception?: string;
+    solheimWaitingRoom?: string;
+    
+    // Paradis Clinic Specific Images
+    paradisHeroInterior?: string;
+    paradisTreatmentRoom?: string;
+    paradisEquipment?: string;
+    paradisExterior?: string;
+    paradisReception?: string;
+    paradisWaitingRoom?: string;
+    
+    // Treatment/Services Images
+    emergencyCare?: string;
+    painRelief?: string;
+    emergencyEquipment?: string;
+    
+    // Contact/About Images
+    contactHero?: string;
+    anxietyTreatment?: string;
+    aboutHeroTeam?: string;
+    aboutClinicShowcase?: string;
+    aboutEquipment?: string;
+    
+    // Treatments Page Specific
+    treatmentsHero?: string;
   };
   content: string;
 }
