@@ -1,0 +1,32 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="url(#heroGradient)"/>
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0FDFA"/>
+      <stop offset="50%" style="stop-color:#CCFBF1"/>
+      <stop offset="100%" style="stop-color:#5EEAD4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Abstract dental clinic shapes -->
+  <circle cx="900" cy="200" r="150" fill="#0D9488" opacity="0.1"/>
+  <circle cx="1000" cy="350" r="100" fill="#2563EB" opacity="0.08"/>
+  <circle cx="800" cy="450" r="80" fill="#0D9488" opacity="0.12"/>
+  
+  <!-- Tooth icon representation -->
+  <g transform="translate(450, 250)">
+    <path d="M50 0C77.614 0 100 22.386 100 50V80C100 120 80 140 50 140C20 140 0 120 0 80V50C0 22.386 22.386 0 50 0Z" fill="#FFFFFF" opacity="0.9"/>
+    <path d="M50 10C71.539 10 90 28.461 90 50V80C90 115 75 130 50 130C25 130 10 115 10 80V50C10 28.461 28.461 10 50 10Z" fill="#0D9488" opacity="0.15"/>
+  </g>
+  
+  <!-- Professional medical elements -->
+  <rect x="200" y="150" width="300" height="200" rx="20" fill="#FFFFFF" opacity="0.8"/>
+  <rect x="220" y="170" width="260" height="20" rx="10" fill="#0D9488" opacity="0.3"/>
+  <rect x="220" y="210" width="200" height="15" rx="7" fill="#94A3B8" opacity="0.4"/>
+  <rect x="220" y="240" width="180" height="15" rx="7" fill="#94A3B8" opacity="0.3"/>
+  <rect x="220" y="270" width="220" height="15" rx="7" fill="#94A3B8" opacity="0.4"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="600" r="60" fill="#2563EB" opacity="0.1"/>
+  <circle cx="1050" cy="700" r="80" fill="#0D9488" opacity="0.08"/>
+</svg>
