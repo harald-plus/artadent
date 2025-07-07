@@ -106,21 +106,21 @@ export default function ParadisPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="relative py-12 sm:py-16 lg:py-24 xl:py-32 overflow-hidden">
+        <section className="relative py-8 md:py-16 lg:py-24 overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-              <div className="space-y-6 sm:space-y-8">
+            <div className="grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
+              <div className="space-y-3 md:space-y-4 lg:space-y-8">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-50 text-primary-800 rounded-full text-xs sm:text-sm font-medium">
                   <TreePine className="w-3 h-3 sm:w-4 sm:h-4" />
                   Paradis Klinikk
                 </div>
                 
-                <div className="space-y-4 sm:space-y-6">
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-medium text-gray-900 leading-tight">
+                <div className="space-y-3 md:space-y-4 lg:space-y-6">
+                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 leading-tight">
                     Artadent Paradis
                   </h1>
                   
-                  <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-lg">
                     Vår klinikk i Paradis tilbyr personlig tannbehandling 
                     i komfortable omgivelser, kun 10 minutter med bil fra Bergen sentrum.
                   </p>
@@ -190,25 +190,25 @@ export default function ParadisPage() {
         </section>
 
         {/* Paradis Unique Features */}
-        <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
+        <section className="py-8 md:py-16 lg:py-24 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 leading-tight mb-3 sm:mb-4">
+            <div className="text-center mb-6 md:mb-8 lg:mb-12">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 leading-tight mb-3 sm:mb-4">
                 Hvorfor velge Paradis?
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Personlig service og moderne fasiliteter i rolige omgivelser
               </p>
             </div>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
               {paradisHighlights.map((highlight, index) => (
-                <div key={index} className="bg-white rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-100 text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary-100 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <highlight.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                <div key={index} className="bg-white rounded-xl p-3 md:p-4 lg:p-6 border border-gray-100 text-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-primary-100 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <highlight.icon className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 text-primary" />
                   </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-medium text-gray-900 mb-2 sm:mb-3">{highlight.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{highlight.description}</p>
+                  <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-900 mb-2 sm:mb-3">{highlight.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">{highlight.description}</p>
                 </div>
               ))}
             </div>
@@ -216,25 +216,25 @@ export default function ParadisPage() {
         </section>
 
         {/* Location Features */}
-        <section className="py-12 sm:py-16 lg:py-24 bg-gray-50">
+        <section className="py-8 md:py-16 lg:py-24 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 leading-tight mb-3 sm:mb-4">
+            <div className="text-center mb-6 md:mb-8 lg:mb-12">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 leading-tight mb-3 sm:mb-4">
                 Våre fasiliteter
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Kombinasjon av profesjonell tannbehandling og rolige omgivelser
               </p>
             </div>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-4 sm:p-6 border border-gray-100 text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary-100 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+                <div key={index} className="bg-white rounded-xl p-3 md:p-4 lg:p-6 border border-gray-100 text-center">
+                  <div className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 bg-primary-100 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <feature.icon className="w-5 h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 text-primary" />
                   </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-medium text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-900 mb-2 sm:mb-3">{feature.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -242,17 +242,17 @@ export default function ParadisPage() {
         </section>
 
         {/* Services & Pricing */}
-        <section className="py-16 sm:py-20 lg:py-32 xl:py-40 bg-white">
+        <section className="py-8 md:py-16 lg:py-24 bg-white">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
-              <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+              <div className="space-y-4 md:space-y-6 lg:space-y-8">
                 
-                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-gray-900 leading-tight">
+                <div className="space-y-3 md:space-y-4 lg:space-y-6">
+                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 leading-tight">
                     Kvalitetstannbehandling i Paradis
                   </h2>
                   
-                  <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
                     Vi tilbyr samme høye standard som på Solheim, men i mer intime 
                     og personlige omgivelser i vår moderne klinikk i Paradis.
                   </p>
