@@ -63,10 +63,18 @@ export default {
       }
 
       // Verify Turnstile token
+      console.log('Verifying Turnstile token...', {
+        hasToken: !!formData['cf-turnstile-response'],
+        tokenLength: formData['cf-turnstile-response']?.length,
+        hasSecretKey: !!env.TURNSTILE_SECRET_KEY
+      });
+      
       const turnstileValid = await verifyTurnstile(
         formData['cf-turnstile-response'], 
         env.TURNSTILE_SECRET_KEY
       );
+
+      console.log('Turnstile verification result:', turnstileValid);
 
       if (!turnstileValid) {
         return new Response(JSON.stringify({ 
@@ -125,19 +133,30 @@ export default {
 };
 
 async function verifyTurnstile(token: string, secretKey: string): Promise<boolean> {
-  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      secret: secretKey,
-      response: token,
-    }),
-  });
+  try {
+    console.log('Making Turnstile verification request...');
+    
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        secret: secretKey,
+        response: token,
+      }),
+    });
 
-  const result = await response.json() as { success: boolean };
-  return result.success;
+    console.log('Turnstile API response status:', response.status);
+    
+    const result = await response.json() as { success: boolean; 'error-codes'?: string[] };
+    console.log('Turnstile API result:', result);
+    
+    return result.success;
+  } catch (error) {
+    console.error('Turnstile verification error:', error);
+    return false;
+  }
 }
 
 // Using MailChannels - free email service for Cloudflare Workers
