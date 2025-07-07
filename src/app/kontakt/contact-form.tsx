@@ -88,7 +88,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://artadent-forms.your-account.workers.dev', {
+      const response = await fetch('https://artadent-forms.h-6a2.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -389,7 +389,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                 {/* Cloudflare Turnstile */}
                 <div className="flex justify-center">
                   <Turnstile
-                    siteKey="0x4AAAAAAABvBZDzNOdA4Wrt" // Replace with your actual site key
+                    siteKey="0x4AAAAAABkO7BQ5o8uAhgdJ"
                     onSuccess={(token) => setTurnstileToken(token)}
                     onError={() => setTurnstileToken("")}
                     onExpire={() => setTurnstileToken("")}
