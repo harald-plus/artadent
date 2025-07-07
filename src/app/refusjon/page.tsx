@@ -118,7 +118,7 @@ export default function RefundPage() {
       
       <main>
         {/* Hero Section */}
-        <section className="relative py-8 md:py-16 lg:py-24 overflow-hidden">
+        <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
               <div className="space-y-3 md:space-y-4 lg:space-y-8">
@@ -139,11 +139,11 @@ export default function RefundPage() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                  <Link href="/kontakt" className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl text-xs sm:text-sm md:text-base">
+                  <Link href="/kontakt" className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base">
                     <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>Book time med refusjon</span>
                   </Link>
-                  <Link href="/behandlinger" className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 lg:px-8 lg:py-4 bg-primary-50 text-primary font-semibold rounded-xl hover:bg-primary-100 transition-all duration-300 text-xs sm:text-sm md:text-base">
+                  <Link href="/behandlinger" className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3 md:px-8 md:py-4 bg-primary-50 text-primary font-semibold rounded-xl hover:bg-primary-100 transition-all duration-300 text-sm md:text-base">
                     <span>Se priser</span>
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                   </Link>
@@ -187,7 +187,7 @@ export default function RefundPage() {
         </section>
 
         {/* Helfo Direct Settlement */}
-        <section className="py-8 md:py-16 lg:py-24 bg-green-50">
+        <section className="py-12 md:py-16 lg:py-24 bg-green-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
@@ -330,7 +330,7 @@ export default function RefundPage() {
                     <div className="text-sm text-blue-200">Inkludert Helfo-refusjon</div>
                   </div>
                   
-                  <Link href="/kontakt" className="block w-full bg-white text-blue-600 font-semibold py-4 px-8 rounded-xl hover:bg-blue-50 transition-all duration-300 text-center">
+                  <Link href="/kontakt" className="block w-full bg-white text-blue-600 font-semibold px-6 py-3 md:px-8 md:py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 text-center text-sm md:text-base">
                     Book studenttime nå
                   </Link>
                 </div>
@@ -369,7 +369,7 @@ export default function RefundPage() {
             
             <div className="text-center mt-8 lg:mt-12">
               <p className="text-sm lg:text-base text-gray-600 mb-6">Har du flere spørsmål? Vi hjelper deg gjerne!</p>
-              <Link href="/kontakt" className="inline-flex items-center justify-center gap-3 px-6 py-3 lg:px-8 lg:py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300">
+              <Link href="/kontakt" className="inline-flex items-center justify-center gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 text-sm md:text-base">
                 <Phone className="w-4 h-4" />
                 <span>Kontakt oss</span>
               </Link>
@@ -430,11 +430,11 @@ export default function RefundPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center">
-                <Link href="/kontakt" className="inline-flex items-center justify-center gap-3 px-8 py-4 lg:px-10 lg:py-5 bg-white text-primary font-semibold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg">
+                <Link href="/kontakt" className="inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white text-primary font-semibold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg text-sm md:text-base">
                   <Calendar className="w-5 h-5" />
                   <span>Book time med refusjon</span>
                 </Link>
-                <Link href="/behandlinger" className="inline-flex items-center justify-center gap-3 px-6 py-3 lg:px-8 lg:py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-all duration-300 backdrop-blur-sm">
+                <Link href="/behandlinger" className="inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-all duration-300 backdrop-blur-sm text-sm md:text-base">
                   <span>Se behandlinger og priser</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>

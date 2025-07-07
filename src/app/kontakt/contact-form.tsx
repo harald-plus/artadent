@@ -129,7 +129,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-8 md:py-16 lg:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
             <div className="space-y-3 md:space-y-4 lg:space-y-8">
@@ -150,11 +150,11 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
               </div>
               
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                <Link href={`tel:${solheimLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 text-xs sm:text-sm md:text-base">
+                <Link href={`tel:${solheimLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 text-sm md:text-base">
                   <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>Ring Solheim</span>
                 </Link>
-                <Link href={`tel:${paradisLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-2 sm:gap-3 px-4 py-2.5 sm:px-6 sm:py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 text-xs sm:text-sm md:text-base">
+                <Link href={`tel:${paradisLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 text-sm md:text-base">
                   <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>Ring Paradis</span>
                 </Link>
@@ -198,7 +198,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
       </section>
 
       {/* Quick Facts */}
-      <section className="py-8 md:py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {quickFacts.map((fact, index) => (
@@ -215,7 +215,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-8 md:py-16 lg:py-24 bg-white">
+      <section className="py-12 md:py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 w-full max-w-full min-w-0">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Contact Form */}
@@ -253,7 +253,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                   </div>
                   
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                       Telefon *
                     </label>
                     <input
@@ -262,14 +262,14 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full px-4 py-3 md:px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base"
                       placeholder="+47 xxx xx xxx"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                     E-post *
                   </label>
                   <input
@@ -278,21 +278,21 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base"
                     placeholder="din@email.no"
                   />
                 </div>
                 
                 <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0">
                   <div>
-                    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="location" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                       Foretrukket klinikk
                     </label>
                     <select
                       id="location"
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      className="w-full px-4 py-3 md:px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-base min-w-0 max-w-full"
+                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base min-w-0 max-w-full"
                     >
                       <option value="solheim">Solheim</option>
                       <option value="paradis">Paradis</option>
@@ -301,14 +301,14 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                   </div>
                   
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="service" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                       Type behandling
                     </label>
                     <select
                       id="service"
                       value={formData.service}
                       onChange={(e) => setFormData({...formData, service: e.target.value})}
-                      className="w-full px-4 py-3 md:px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-base min-w-0 max-w-full"
+                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base min-w-0 max-w-full"
                     >
                       <option value="">Velg behandling</option>
                       {Object.entries(servicesByCategory).map(([categoryKey, categoryServices]) => {
@@ -329,7 +329,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
                     Melding
                   </label>
                   <textarea
@@ -337,7 +337,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base"
                     placeholder="Beskriv dine behov eller still spørsmål..."
                   />
                 </div>
@@ -345,7 +345,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg w-full"
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg w-full text-sm md:text-base"
                 >
                   <Send className="w-5 h-5" />
                   <span>Send melding</span>
@@ -420,13 +420,13 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                 </div>
                 
                 {/* Paradis Clinic */}
-                <div className="bg-gray-50 rounded-2xl p-6 lg:p-8">
-                  <div className="flex items-start gap-4 lg:gap-6">
-                    <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <TreePine className="w-8 h-8 text-primary" />
+                <div className="bg-gray-50 rounded-2xl p-3 md:p-4 lg:p-6">
+                  <div className="flex items-start gap-3 md:gap-4 lg:gap-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-primary-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                      <TreePine className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary" />
                     </div>
-                    <div className="space-y-4">
-                      <h3 className="text-xl md:text-2xl font-medium text-gray-900">Paradis Klinikk</h3>
+                    <div className="space-y-3 sm:space-y-4">
+                      <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-900">Paradis Klinikk</h3>
                       
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
@@ -475,11 +475,11 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                       Vi har 24/7 telefontjeneste og kan tilby akuttimer.
                     </p>
                     <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                      <Link href={`tel:${solheimLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-3 px-4 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 text-sm">
+                      <Link href={`tel:${solheimLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 text-sm md:text-base">
                         <Phone className="w-4 h-4" />
                         <span>Ring Solheim</span>
                       </Link>
-                      <Link href={`tel:${paradisLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-3 px-4 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 text-sm">
+                      <Link href={`tel:${paradisLocation.phone.replace(/\s/g, '')}`} className="inline-flex items-center justify-center gap-3 px-4 py-2.5 md:px-6 md:py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-all duration-300 text-sm md:text-base">
                         <Phone className="w-4 h-4" />
                         <span>Ring Paradis</span>
                       </Link>
@@ -511,11 +511,11 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
-              <Link href="#contact-form" className="inline-flex items-center justify-center gap-3 px-8 py-4 md:px-10 md:py-5 bg-white text-primary font-semibold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg">
+              <Link href="#contact-form" className="inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white text-primary font-semibold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg text-sm md:text-base">
                 <Calendar className="w-5 h-5" />
                 <span>Book time nå</span>
               </Link>
-              <Link href="/behandlinger" className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-all duration-300 backdrop-blur-sm">
+              <Link href="/behandlinger" className="inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-all duration-300 backdrop-blur-sm text-sm md:text-base">
                 <span>Se våre tjenester</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
