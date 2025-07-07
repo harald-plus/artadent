@@ -1,5 +1,5 @@
 ---
-title: "Fjerning av retinert tann"
+title: "Retinert tann"
 description: "Operativ fjerning av tann som ikke har kommet frem naturlig"
 priceRange: "2.500 - 4.000 kr"
 category: "extractions"

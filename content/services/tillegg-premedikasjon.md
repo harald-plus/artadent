@@ -1,5 +1,5 @@
 ---
-title: "Tillegg for premedikasjon"
+title: "Premedikasjon tillegg"
 description: "Ekstra kostnad for forhåndsmedisinering"
 priceRange: "650 kr"
 category: "examination"

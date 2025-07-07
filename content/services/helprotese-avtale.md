@@ -1,5 +1,5 @@
 ---
-title: "Helprotese (spesialavtale)"
+title: "Helprotese spesial"
 description: "Pris etter avtale med tannlege. Kontakt oss angående refusjonsmuligheter"
 priceRange: "Etter avtale"
 category: "misc"

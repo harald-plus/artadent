@@ -1,5 +1,5 @@
 ---
-title: "Non-operativ kariesbehandling"
+title: "Non-operativ karies"
 description: "Ikke-invasiv behandling av karies med duraphat-fluorlakk"
 priceRange: "450 - 700 kr"
 category: "fillings"

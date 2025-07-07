@@ -1,0 +1,76 @@
+
+> artadent-site@0.1.0 dev
+> tinacms dev -c "next dev --turbopack"
+
+🦙 TinaCMS Dev Server is initializing...
+[2K[1GIndexing local files ⠋[2K[1GIndexing local files ⠙
+│
+○  ✅ 🦙 TinaCMS Dev Server is active: ─────────────────────────────────────╮
+│                                                                          │
+│  🦙 TinaCMS URLs                                                         │
+│     CMS:                <your-dev-server-url>/admin/index.html           │
+│     API playground:     <your-dev-server-url>/admin/index.html#/graphql  │
+│     API url:            http://localhost:4001/graphql                    │
+│                                                                          │
+│  🤖 Auto-generated files                                                 │
+│     GraphQL Client:     tina/__generated__/client.ts                     │
+│     Typescript Types:   tina/__generated__/types.ts                      │
+│                                                                          │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────╯
+Running web application with command: next dev --turbopack
+(node:11683) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+   ▲ Next.js 15.3.5 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://10.20.50.43:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 884ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1358ms
+ GET / 200 in 1651ms
+ GET / 200 in 102ms
+ GET / 200 in 105ms
+ GET / 200 in 61ms
+ GET / 200 in 58ms
+ GET / 200 in 63ms
+ GET / 200 in 60ms
+ GET / 200 in 57ms
+ GET / 200 in 58ms
+ GET / 200 in 61ms
+ GET / 200 in 64ms
+ GET / 200 in 63ms
+ GET / 200 in 61ms
+ GET / 200 in 61ms
+ GET / 200 in 60ms
+ GET / 200 in 65ms
+ GET / 200 in 60ms
+ GET / 200 in 61ms
+ GET / 200 in 61ms
+ ✓ Compiled in 47ms
+ ✓ Compiled in 38ms
+ ✓ Compiled in 43ms
+ ✓ Compiled in 44ms
+ ✓ Compiled in 44ms
+ ✓ Compiled in 35ms
+ ✓ Compiled in 45ms
+ ✓ Compiled in 50ms
+ ✓ Compiled in 53ms
+ ✓ Compiled in 45ms
+ ✓ Compiled in 63ms
+ ✓ Compiled in 54ms
+ ✓ Compiled in 49ms
+ ✓ Compiled / in 23ms
+ GET / 200 in 266ms
+ ○ Compiling /behandlinger ...
+ ✓ Compiled /behandlinger in 534ms
+ GET /behandlinger 200 in 690ms
+ ✓ Compiled /kontakt in 439ms
+ GET /kontakt 200 in 546ms
+ GET /kontakt?scroll=form 200 in 74ms
+ ✓ Compiled /_not-found/page in 424ms
+ GET /images/placeholder.svg 404 in 456ms
+ GET / 200 in 102ms
+[?25h

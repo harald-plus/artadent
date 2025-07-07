@@ -216,10 +216,10 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
 
       {/* Contact Form & Info */}
       <section className="py-12 md:py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4 w-full max-w-full min-w-0">
+        <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Contact Form */}
-            <div id="contact-form" className="space-y-4 md:space-y-6 lg:space-y-8 w-full max-w-full overflow-hidden">
+            <div id="contact-form" className="space-y-4 md:space-y-6 lg:space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium">
                 <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                 Book time
@@ -235,7 +235,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                 </p>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 lg:space-y-6 w-full max-w-full min-w-0">
+              <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 lg:space-y-6">
                 <div className="space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
                   <div>
                     <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2">
@@ -292,7 +292,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                       id="location"
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
-                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base min-w-0 max-w-full"
+                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base"
                     >
                       <option value="solheim">Solheim</option>
                       <option value="paradis">Paradis</option>
@@ -308,7 +308,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                       id="service"
                       value={formData.service}
                       onChange={(e) => setFormData({...formData, service: e.target.value})}
-                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base min-w-0 max-w-full"
+                      className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent text-xs sm:text-sm md:text-base"
                     >
                       <option value="">Velg behandling</option>
                       {Object.entries(servicesByCategory).map(([categoryKey, categoryServices]) => {

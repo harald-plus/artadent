@@ -48,14 +48,14 @@ export function Header({ logoSrc = "/images/main-logo.webp" }: HeaderProps) {
     >
       <div className="container mx-auto px-4">
         {/* Main navigation */}
-        <nav className="flex items-center justify-between py-4">
+        <nav className="flex items-center justify-between py-2 md:py-4">
           <Link href="/" className="flex items-center">
             <Image
               src={logoSrc}
               alt="Artadent Tannklinikk"
               width={240}
               height={110}
-              className="h-18 w-auto"
+              className="h-12 md:h-16 lg:h-18 w-auto"
               priority
             />
           </Link>
@@ -91,95 +91,97 @@ export function Header({ logoSrc = "/images/main-logo.webp" }: HeaderProps) {
 
           {/* CTA Buttons */}
           <div className="flex items-center space-x-3">
-            <Button asChild className="hidden md:flex bg-primary-50 text-primary border-none hover:bg-primary-100 font-medium px-8 py-6 rounded-xl">
+            <Button asChild className="hidden md:flex bg-primary-50 text-primary border-none hover:bg-primary-100 font-medium px-6 py-3 md:px-8 md:py-4 rounded-xl text-sm md:text-base">
               <Link href="/kontakt" className="flex items-center justify-center min-h-full leading-none">Kontakt oss</Link>
             </Button>
-            <Button asChild className="bg-primary hover:bg-primary-700 text-white font-medium rounded-xl px-8 py-6">
+            <Button asChild className="bg-primary hover:bg-primary-700 text-white font-medium rounded-xl px-6 py-3 md:px-8 md:py-4 text-sm md:text-base">
               <Link href="/kontakt?scroll=form" className="flex items-center justify-center min-h-full leading-none">Book time</Link>
             </Button>
             
             {/* Mobile menu button */}
             <Button 
               variant="ghost" 
-              className="lg:hidden p-3 h-12 w-12"
+              className="lg:hidden p-2 h-10 w-10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </nav>
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-4 space-y-3">
+          <div className="lg:hidden border-t border-gray-100 py-3 space-y-2">
             {/* Main navigation links */}
             <Link 
               href="/om-oss" 
-              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium text-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Om oss
             </Link>
             <Link 
               href="/behandlinger" 
-              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium text-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Behandlinger
             </Link>
             <Link 
               href="/refusjon" 
-              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium text-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Refusjon & Støtte
             </Link>
             <Link 
               href="/kontakt" 
-              className="block py-3 text-gray-700 hover:text-primary transition-colors font-medium"
+              className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium text-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Kontakt oss
             </Link>
             
             {/* Clinics section at bottom */}
-            <div className="pt-4 border-t border-gray-100 space-y-4">
-              <h3 className="text-gray-900 font-semibold text-sm uppercase tracking-wide">Våre klinikker</h3>
+            <div className="pt-4 border-t border-gray-100">
+              <h3 className="text-gray-900 font-semibold text-xs uppercase tracking-wide mb-3">Våre klinikker</h3>
               
-              {/* Solheim Clinic */}
-              <div className="space-y-2">
-                <Link 
-                  href="/solheim" 
-                  className="block text-gray-700 hover:text-primary transition-colors font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Solheim Klinikk
-                </Link>
-                <a 
-                  href="tel:+4792943499" 
-                  className="flex items-center space-x-2 text-sm text-gray-600 hover:text-primary transition-colors pl-4"
-                >
-                  <Phone className="h-4 w-4 text-primary" />
-                  <span>Ring: 92 94 34 99</span>
-                </a>
-              </div>
-              
-              {/* Paradis Clinic */}
-              <div className="space-y-2">
-                <Link 
-                  href="/paradis" 
-                  className="block text-gray-700 hover:text-primary transition-colors font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Paradis Klinikk
-                </Link>
-                <a 
-                  href="tel:+4797326724" 
-                  className="flex items-center space-x-2 text-sm text-gray-600 hover:text-primary transition-colors pl-4"
-                >
-                  <Phone className="h-4 w-4 text-primary" />
-                  <span>Ring: 97 32 67 24</span>
-                </a>
+              <div className="grid grid-cols-1 gap-3">
+                {/* Solheim Clinic */}
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <Link 
+                    href="/solheim" 
+                    className="block text-gray-900 hover:text-primary transition-colors font-medium text-sm mb-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Solheim Klinikk
+                  </Link>
+                  <a 
+                    href="tel:+4792943499" 
+                    className="flex items-center space-x-2 text-xs text-gray-600 hover:text-primary transition-colors"
+                  >
+                    <Phone className="h-3 w-3 text-primary flex-shrink-0" />
+                    <span>Ring: 92 94 34 99</span>
+                  </a>
+                </div>
+                
+                {/* Paradis Clinic */}
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <Link 
+                    href="/paradis" 
+                    className="block text-gray-900 hover:text-primary transition-colors font-medium text-sm mb-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Paradis Klinikk
+                  </Link>
+                  <a 
+                    href="tel:+4797326724" 
+                    className="flex items-center space-x-2 text-xs text-gray-600 hover:text-primary transition-colors"
+                  >
+                    <Phone className="h-3 w-3 text-primary flex-shrink-0" />
+                    <span>Ring: 97 32 67 24</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
