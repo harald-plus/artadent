@@ -130,7 +130,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
     <>
       {/* Hero Section */}
       <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-16 items-center">
             <div className="space-y-3 md:space-y-4 lg:space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-50 text-primary-800 rounded-full text-xs sm:text-sm font-medium">
@@ -162,7 +162,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
             </div>
             
             <div className="relative">
-              <div className="aspect-square max-w-lg mx-auto relative">
+              <div className="aspect-square md:aspect-[4/3] max-w-sm md:max-w-2xl mx-auto lg:max-w-none relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                   <Image
                     src="/images/placeholder.svg"
@@ -199,7 +199,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
 
       {/* Quick Facts */}
       <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {quickFacts.map((fact, index) => (
               <div key={index} className="bg-white rounded-xl p-3 md:p-4 lg:p-6 border border-gray-100 text-center">
@@ -216,7 +216,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
 
       {/* Contact Form & Info */}
       <section className="py-12 md:py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Contact Form */}
             <div id="contact-form" className="space-y-4 md:space-y-6 lg:space-y-8">
@@ -494,7 +494,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
 
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-primary-700 text-white">
-        <div className="container mx-auto px-4 text-center">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
           <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm">
               <Sparkles className="w-4 h-4" />

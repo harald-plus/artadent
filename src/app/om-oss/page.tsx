@@ -62,7 +62,7 @@ export default function AboutPage() {
       <main>
         {/* Hero Section */}
         <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
               <div className="space-y-3 md:space-y-4 lg:space-y-8">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-50 text-primary-800 rounded-full text-xs sm:text-sm font-medium">
@@ -94,7 +94,7 @@ export default function AboutPage() {
               </div>
               
               <div className="relative">
-                <div className="aspect-square max-w-lg mx-auto relative">
+                <div className="aspect-square md:aspect-[4/3] max-w-sm md:max-w-2xl mx-auto lg:max-w-none relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
                       src="/images/dental-team.webp"
@@ -131,7 +131,7 @@ export default function AboutPage() {
 
         {/* Statistics Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 mb-3 sm:mb-4">
                 Tilliten vi har bygget
@@ -165,7 +165,7 @@ export default function AboutPage() {
 
         {/* About Artadent - Extended Text Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
               <div className="space-y-4 md:space-y-6 lg:space-y-8">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-green-100 text-green-800 rounded-full text-xs sm:text-sm font-medium">
@@ -237,7 +237,7 @@ export default function AboutPage() {
 
         {/* Mission & Values */}
         <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 <Target className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -267,7 +267,7 @@ export default function AboutPage() {
 
         {/* Emergency & Anxiety Specialization */}
         <section className="py-20 md:py-32 lg:py-40 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
               <div className="relative order-2 lg:order-1">
                 <div className="grid grid-cols-2 gap-4 md:gap-6">
@@ -375,7 +375,7 @@ export default function AboutPage() {
 
         {/* Patient Comfort Section */}
         <section className="py-16 md:py-24 bg-gradient-to-r from-green-50 to-blue-50">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
                 <Heart className="w-4 h-4" />

@@ -112,7 +112,7 @@ export default function TreatmentsPage() {
       <main>
         {/* Hero Section */}
         <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-center">
               <div className="space-y-3 md:space-y-4 lg:space-y-8">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-50 text-primary-800 rounded-full text-xs sm:text-sm font-medium">
@@ -144,7 +144,7 @@ export default function TreatmentsPage() {
               </div>
               
               <div className="relative">
-                <div className="aspect-square max-w-lg mx-auto relative">
+                <div className="aspect-square md:aspect-[4/3] max-w-sm md:max-w-2xl mx-auto lg:max-w-none relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
                       src="/images/placeholder.webp"
@@ -181,7 +181,7 @@ export default function TreatmentsPage() {
 
         {/* Highlights */}
         <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 mb-3 sm:mb-4">
                 Hvorfor velge Artadent?
@@ -207,7 +207,7 @@ export default function TreatmentsPage() {
 
         {/* Treatment Categories */}
         <section className="py-12 md:py-16 lg:py-24 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 leading-normal mb-3 sm:mb-4">
                 Våre tjenester
@@ -263,7 +263,7 @@ export default function TreatmentsPage() {
 
         {/* Student Discount Section */}
         <section className="py-16 md:py-24 bg-gradient-to-r from-green-500 to-green-600 text-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="max-w-4xl mx-auto text-center space-y-6 md:space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm">
                 <Star className="w-4 h-4" />
@@ -307,7 +307,7 @@ export default function TreatmentsPage() {
 
         {/* Emergency Care */}
         <section className="py-16 md:py-24 lg:py-32 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
               <div className="space-y-8 md:space-y-12">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium">
@@ -410,7 +410,7 @@ export default function TreatmentsPage() {
 
         {/* CTA Section */}
         <section className="py-16 md:py-24 bg-gradient-to-r from-primary to-primary-700 text-white">
-          <div className="container mx-auto px-4 text-center">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
             <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium backdrop-blur-sm">
                 <Sparkles className="w-4 h-4" />

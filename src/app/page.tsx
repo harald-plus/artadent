@@ -39,7 +39,7 @@ export default function Home() {
       <main>
         {/* Clean Hero Section */}
         <section className="relative py-12 md:py-16 lg:py-24 overflow-hidden">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-center">
               {/* Content */}
               <div className="space-y-3 md:space-y-4 lg:space-y-6">
@@ -88,7 +88,7 @@ export default function Home() {
               
               {/* Hero Image */}
               <div className="relative">
-                <div className="aspect-square max-w-lg mx-auto relative">
+                <div className="aspect-square md:aspect-[4/3] max-w-sm md:max-w-2xl mx-auto lg:max-w-none relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden">
                     <Image
                       src={images.homepageHero || "/images/hero-dental.webp"}
@@ -127,7 +127,7 @@ export default function Home() {
 
         {/* Statistics Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium text-gray-900 mb-2 md:mb-4">
                 Tilliten vi har bygget
@@ -161,7 +161,7 @@ export default function Home() {
 
         {/* About Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-center">
               {/* Images */}
               <div className="relative">
@@ -240,7 +240,7 @@ export default function Home() {
 
         {/* Safe Treatment & Skilled Dentists Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-center">
               {/* Content */}
               <div className="space-y-4 md:space-y-6 lg:space-y-8">
@@ -338,7 +338,7 @@ export default function Home() {
 
         {/* Services Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-gray-50">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium mb-3 md:mb-4 lg:mb-6">
                 <Building className="w-4 h-4" />
@@ -357,7 +357,7 @@ export default function Home() {
                 
                 return (
                   <div key={service.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                    <div className="relative h-32 md:h-36 lg:h-48 bg-gradient-to-br from-primary-100 to-primary-200">
+                    <div className="relative h-40 md:h-48 lg:h-48 bg-gradient-to-br from-primary-100 to-primary-200">
                       <Image
                         src={service.image || images.placeholderGeneral || "/images/placeholder.webp"}
                         alt={service.title}
@@ -394,7 +394,7 @@ export default function Home() {
 
         {/* Testimonials Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-white">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-6 md:mb-8 lg:mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xs sm:text-sm font-medium mb-3 md:mb-4 lg:mb-6">
                 <Star className="w-4 h-4 fill-current" />

@@ -10,7 +10,7 @@ interface FooterProps {
 export function Footer({ logoSrc = "/images/main-logo.webp" }: FooterProps) {
   return (
     <footer className="bg-gradient-to-br from-blue-50 to-white border-t border-gray-100">
-      <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 xl:py-20">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 md:py-12 lg:py-16 xl:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 xl:gap-12">
           {/* Company Info */}
           <div className="space-y-4 md:space-y-5 lg:space-y-6">

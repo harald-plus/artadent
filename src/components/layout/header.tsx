@@ -46,7 +46,7 @@ export function Header({ logoSrc = "/images/main-logo.webp" }: HeaderProps) {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Main navigation */}
         <nav className="flex items-center justify-between py-2 md:py-4">
           <Link href="/" className="flex items-center">
