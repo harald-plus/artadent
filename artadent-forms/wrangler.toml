@@ -1,0 +1,25 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "artadent-forms"
+main = "src/index.ts"
+compatibility_date = "2025-07-05"
+
+# Environment variables (set these with wrangler secret put)
+# TURNSTILE_SECRET_KEY = "your_turnstile_secret_key"
+# SMTP_HOST = "smtp.gmail.com"  # or your email provider
+# SMTP_PORT = "587"
+# SMTP_USER = "your_email@gmail.com"
+# SMTP_PASS = "your_app_password"
+# EMAIL_FROM = "noreply@artadent.no"  # or your email
+# EMAIL_TO = "info@artadent.no"       # where to receive form submissions
+
+# You can set these locally for development:
+# wrangler secret put TURNSTILE_SECRET_KEY
+# wrangler secret put SMTP_HOST
+# wrangler secret put SMTP_PORT
+# wrangler secret put SMTP_USER
+# wrangler secret put SMTP_PASS
+# wrangler secret put EMAIL_FROM
+# wrangler secret put EMAIL_TO
+
+[vars]
+# Non-sensitive environment variables can go here

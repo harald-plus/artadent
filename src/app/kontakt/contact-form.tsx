@@ -23,6 +23,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { locations } from "@/data/locations";
 import { Service } from "@/lib/markdown";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 interface ContactFormProps {
   services: Service[];
@@ -38,6 +39,9 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
     service: "",
     message: "",
   });
+  
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Handle URL parameters for preselection
   useEffect(() => {
@@ -73,11 +77,51 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
   const solheimLocation = locations.find(loc => loc.id === "solheim")!;
   const paradisLocation = locations.find(loc => loc.id === "paradis")!;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // This would normally send to a backend API
-    console.log("Form submitted:", formData);
-    alert("Takk for din henvendelse! Vi kontakter deg snart.");
+    
+    if (!turnstileToken) {
+      alert("Vennligst fullfør sikkerhetskontroll før innsending.");
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('https://artadent-forms.your-account.workers.dev', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          'cf-turnstile-response': turnstileToken,
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        alert(result.message);
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          location: "solheim",
+          service: "",
+          message: "",
+        });
+        setTurnstileToken("");
+      } else {
+        alert(result.message || "Det oppstod en feil. Prøv igjen senere.");
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert("Det oppstod en feil. Prøv igjen senere.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Group services by category - matching treatments page exactly
@@ -342,13 +386,31 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
                   />
                 </div>
                 
+                {/* Cloudflare Turnstile */}
+                <div className="flex justify-center">
+                  <Turnstile
+                    siteKey="0x4AAAAAAABvBZDzNOdA4Wrt" // Replace with your actual site key
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setTurnstileToken("")}
+                    onExpire={() => setTurnstileToken("")}
+                    options={{
+                      theme: 'light',
+                      size: 'normal'
+                    }}
+                  />
+                </div>
                 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg w-full text-sm md:text-base"
+                  disabled={!turnstileToken || isSubmitting}
+                  className={`inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 font-semibold rounded-xl transition-all duration-300 shadow-lg w-full text-sm md:text-base ${
+                    !turnstileToken || isSubmitting 
+                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
+                      : 'bg-primary text-white hover:bg-primary-700'
+                  }`}
                 >
                   <Send className="w-5 h-5" />
-                  <span>Send melding</span>
+                  <span>{isSubmitting ? 'Sender...' : 'Send melding'}</span>
                 </button>
                 
                 <p className="text-sm text-gray-500 text-center">
