@@ -1,52 +1,37 @@
 ---
-title: "Nettstedinnstillinger"
+title: Nettstedinnstillinger
 images:
-  # Global/Brand Images
-  logo: "/images/main-logo.webp"
-  heroImage: "/images/hero-dental.webp"
-  teamPhotoMain: "/images/dental-team.webp"
-  clinicInteriorGeneral: "/images/clinic-interior.webp"
-  placeholderGeneral: "/images/placeholder.webp"
-  
-  # Homepage Specific Images
-  homepageHero: "/images/hero-dental.webp"
-  homepageTeamLarge: "/images/dental-team.webp"
-  homepageEquipment1: "/images/young-dentist.webp"
-  homepageEquipment2: "/images/female-staff.webp"
-  homepageEquipment3: "/images/treatment-scene.webp"
-  
-  # Solheim Clinic Specific Images
-  solheimHeroInterior: "/images/clinic-interior.webp"
-  solheimTreatmentRoom: "/images/treatment-scene.webp"
-  solheimEquipment: "/images/equipment-1.webp"
-  solheimExterior: "/images/solheim-exterior.webp"
-  solheimReception: "/images/reception-area.webp"
-  solheimWaitingRoom: "/images/waiting-room.webp"
-  
-  # Paradis Clinic Specific Images
-  paradisHeroInterior: "/images/hero-dental.webp"
-  paradisTreatmentRoom: "/images/female-staff.webp"
-  paradisEquipment: "/images/equipment-2.webp"
-  paradisExterior: "/images/paradis-exterior.webp"
-  paradisReception: "/images/young-dentist.webp"
-  paradisWaitingRoom: "/images/dental-team.webp"
-  
-  # Treatment/Services Images
-  emergencyCare: "/images/emergency-care.webp"
-  painRelief: "/images/modern-technology.webp"
-  emergencyEquipment: "/images/equipment-1.webp"
-  
-  # Contact/About Images
-  contactHero: "/images/contact-hero.webp"
-  anxietyTreatment: "/images/anxiety-treatment.webp"
-  
-  # About Page Specific
-  aboutHeroTeam: "/images/dental-team.webp"
-  aboutClinicShowcase: "/images/clinic-interior.webp"
-  aboutEquipment: "/images/young-dentist.webp"
-  
-  # Treatments Page Specific
-  treatmentsHero: "/images/treatment-scene.webp"
+  logo: /images/main-logo.webp
+  heroImage: /images/female-staff.webp
+  teamPhotoMain: /images/dental-team.webp
+  clinicInteriorGeneral: /images/clinic-interior.webp
+  placeholderGeneral: /images/clinic-interior.webp
+  homepageHero: /images/modern-technology.webp
+  homepageTeamLarge: /images/equipment-1.webp
+  homepageEquipment1: /images/reception-area.webp
+  homepageEquipment2: /images/equipment-2.webp
+  homepageEquipment3: /images/solheim-exterior.webp
+  solheimHeroInterior: /images/clinic-interior.webp
+  solheimTreatmentRoom: /images/reception-area.webp
+  solheimEquipment: /images/equipment-1.webp
+  solheimExterior: /images/solheim-exterior.webp
+  solheimReception: /images/hero-dental.webp
+  solheimWaitingRoom: /images/waiting-room.webp
+  paradisHeroInterior: /images/hero-dental.webp
+  paradisTreatmentRoom: /images/female-staff.webp
+  paradisEquipment: /images/equipment-2.webp
+  paradisExterior: /images/paradis-exterior.webp
+  paradisReception: /images/young-dentist.webp
+  paradisWaitingRoom: /images/dental-team.webp
+  emergencyCare: /images/solheim-exterior.webp
+  painRelief: /images/anxiety-treatment.webp
+  emergencyEquipment: /images/equipment-1.webp
+  contactHero: /images/modern-technology.webp
+  anxietyTreatment: /images/anxiety-treatment.webp
+  aboutHeroTeam: /images/dental-team.webp
+  aboutClinicShowcase: /images/clinic-interior.webp
+  aboutEquipment: /images/young-dentist.webp
+  treatmentsHero: /images/treatment-scene.webp
 ---
 
 # Nettstedinnstillinger
@@ -55,8 +40,8 @@ Her kan du administrere bildene som brukes på nettstedet. Disse bildene vil aut
 
 ## Bildetyper
 
-- **Logo**: Vises i navbar og footer
-- **Hovedbilde**: Stort bilde på forsiden
-- **Teambilde**: Bilde av tannlegeteamet  
-- **Klinikk interiør**: Moderne behandlingsrom
-- **Glade pasienter**: Fornøyde pasienter som brukes på flere steder
+* **Logo**: Vises i navbar og footer
+* **Hovedbilde**: Stort bilde på forsiden
+* **Teambilde**: Bilde av tannlegeteamet
+* **Klinikk interiør**: Moderne behandlingsrom
+* **Glade pasienter**: Fornøyde pasienter som brukes på flere steder
