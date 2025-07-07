@@ -99,7 +99,7 @@ export function ContactForm({ services: allServices }: ContactFormProps) {
         }),
       });
       
-      const result = await response.json();
+      const result = await response.json() as { success: boolean; message: string };
       
       if (result.success) {
         alert(result.message);
